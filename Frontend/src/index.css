@@ -1,0 +1,48 @@
+html, body, #root {
+    margin: 0;
+    padding-top: 5px;
+    height: 100%;
+    text-align: center;
+    font-size: x-large;
+    background-image: linear-gradient(magenta, darkmagenta);
+}
+
+a {
+    color: blue;
+}
+
+form {
+    width: 500px;
+    text-align: left;
+    position: relative;
+}
+
+form > input, form > button {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: x-large;
+}
+
+form > label {
+    font-size: x-large;
+}
+
+.Box {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px;
+}
+
+/* error messages */
+.Err {
+    color: red;
+    font-size: x-large;
+    margin: 0 5px;
+    width: 250px;
+    position: relative;
+    /* top: 50; */
+}

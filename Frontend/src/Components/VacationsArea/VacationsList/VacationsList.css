@@ -1,0 +1,9 @@
+.VacationsList > a {
+
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    /* text-decoration: none; */
+    /* transform: scale(2); */
+	
+}

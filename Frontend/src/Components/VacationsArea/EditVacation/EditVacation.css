@@ -1,0 +1,13 @@
+.EditVacation img {
+	height: 120px;
+    width: 120px;
+    /* position: absolute;
+    right: 20px;
+    bottom: 20px; */
+}
+
+.EditVacation .ImagePreview {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
