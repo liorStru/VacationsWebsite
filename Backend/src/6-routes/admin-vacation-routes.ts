@@ -70,7 +70,7 @@ router.delete("/admin/vacations/:vacationId([0-9]+)", verifyAdmin, async (reques
 });
 
 // GET http://localhost:4000/api/admin/vacations/images/:imageName
-router.get("/admin/vacations/images/:imageName", async (request: Request, response: Response, next: NextFunction) => {
+router.get("/vacations/images/:imageName", async (request: Request, response: Response, next: NextFunction) => {
     try {
         const imageName = request.params.imageName;
         const absolutePath = imageHandler.getAbsolutePath(imageName)

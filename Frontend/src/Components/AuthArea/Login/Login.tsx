@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CredentialsModel from "../../../Models/CredentialsModel";
 import authService from "../../../Services/AuthService";
@@ -44,6 +45,10 @@ function Login(): JSX.Element {
 
                 <button>Login</button>
                 <button type="button" onClick={handleClear}>Clear</button>
+
+                <span>
+                    Not a member? <NavLink to="/register">register here</NavLink>
+                </span>
 
             </form>
         </div>

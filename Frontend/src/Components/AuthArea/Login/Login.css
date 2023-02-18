@@ -1,3 +1,93 @@
 .Login {
-	
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .Login h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #003049;
+  }
+  
+  .Login label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #003049;
+  }
+  
+  .Login input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  .Login button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    background-color: #f77f00;
+    color: #fff;
+    border: none;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .Login button:hover {
+    background-color: #db6d00;
+  }
+  
+  .Login button:active {
+    transform: translateY(2px);
+  }
+  
+  .Login button:focus {
+    outline: none;
+  }
+  
+  .Login button:last-of-type {
+    background-color: #003049;
+    margin-right: 0;
+  }
+  
+  .Login button:last-of-type:hover {
+    background-color: #001d2d;
+  }
+  
+  .Login button:last-of-type:active {
+    transform: translateY(2px);
+  }
+  
+  .Login button:last-of-type:focus {
+    outline: none;
+  }
+  
+  .Login span {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    color: #003049;
+  }
+  
+  .Login span a {
+    color: #f77f00;
+    font-weight: bold;
+  }
+  
+  .Login span a:hover {
+    text-decoration: underline;
+  }
+  
+  .Login .Err {
+    color: #d62828;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  

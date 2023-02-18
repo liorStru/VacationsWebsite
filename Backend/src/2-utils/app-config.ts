@@ -4,7 +4,7 @@ class AppConfig {
     public mysqlUser = "root";
     public mysqlPassword = "";
     public mysqlDatabase = "vacationsDatabase"; 
-    public vacationImagesAddress = `http://localhost:${this.port}/api/admin/vacations/images/`;
+    public vacationImagesAddress = `http://localhost:${this.port}/api/vacations/images/`;
 }
 
 const appConfig = new AppConfig();

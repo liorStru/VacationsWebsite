@@ -2,7 +2,7 @@ import { createStore } from "redux";
 import AdminVacationModel from "../Models/AdminVacationModel";
 
 // 1. App - Application level state
-export class VacationsState {
+export class AdminVacationsState {
     public vacations: AdminVacationModel[] = [];
 }
 
@@ -27,10 +27,10 @@ export interface VacationsAction {
 }
 
 // 4. Reducer - function performing the needed actions (the action object is the one sent via dispatch function):
-export function vacationsReducer(currentState = new VacationsState(), action: VacationsAction): VacationsState {
+export function vacationsReducer(currentState = new AdminVacationsState(), action: VacationsAction): AdminVacationsState {
 
     // Duplicate state for making changes
-    const newState: VacationsState = { ...currentState };
+    const newState: AdminVacationsState = { ...currentState };
 
     switch (action.type) {
 
@@ -82,4 +82,4 @@ export function vacationsReducer(currentState = new VacationsState(), action: Va
 }
 
 // 5. store - Redux manager:
-export const vacationStore = createStore(vacationsReducer);
+export const adminVacationStore = createStore(vacationsReducer);

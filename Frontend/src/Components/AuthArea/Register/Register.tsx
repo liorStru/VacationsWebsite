@@ -18,10 +18,12 @@ function Register(): JSX.Element {
 
             // Use service to register new user
             await authService.register(user);
-            notify.success("Welcome" + user.firstName);
+            // notify.success("Welcome" + user.firstName);
+            notify.success("Registered successfully");
 
             // navigate to vacations
-            navigate("/vacations");
+            // navigate("/vacations");
+            navigate("/login");
         }
         catch (err: any) {
             notify.error(err);

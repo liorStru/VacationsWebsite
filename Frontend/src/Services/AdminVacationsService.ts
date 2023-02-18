@@ -1,6 +1,6 @@
 import axios from "axios";
 import AdminVacationModel from "../Models/AdminVacationModel";
-import { VacationsActionType, vacationStore } from "../Redux/VacationsState";
+import { VacationsActionType, adminVacationStore } from "../Redux/AdminVacationsState";
 import appConfig from "../Utils/AppConfig";
 
 class AdminVacationService {
@@ -9,7 +9,7 @@ class AdminVacationService {
     public async getAllVacations(): Promise<AdminVacationModel[]> {
 
         // Take vacations from global state
-        let vacations = vacationStore.getState().vacations;
+        let vacations = adminVacationStore.getState().vacations;
 
         // If vacation
         if (vacations.length === 0) {
@@ -19,9 +19,8 @@ class AdminVacationService {
             vacations = response.data;
 
             // Send vacations to redux global state and activate reducer
-            vacationStore.dispatch({ type: VacationsActionType.FetchVacations, payload: vacations });
+            adminVacationStore.dispatch({ type: VacationsActionType.FetchVacations, payload: vacations });
         }
-
 
         // Return vacations
         return vacations;
@@ -31,7 +30,7 @@ class AdminVacationService {
     public async getOneVacation(vacationId: number): Promise<AdminVacationModel> {
 
         // Take vacations from global state
-        let vacations = vacationStore.getState().vacations;
+        let vacations = adminVacationStore.getState().vacations;
 
         // Find needed vacation from global state
         let vacation = vacations.find(v => v.vacationId === vacationId)
@@ -62,7 +61,7 @@ class AdminVacationService {
         addedVacation.imageName = appConfig.vacationImageUrl + addedVacation.imageName;
         
         // Send addedVacation to redux global state and activate reducer
-        vacationStore.dispatch({ type: VacationsActionType.AddVacation, payload: addedVacation });
+        adminVacationStore.dispatch({ type: VacationsActionType.AddVacation, payload: addedVacation });
 
     }
 
@@ -80,7 +79,7 @@ class AdminVacationService {
         updatedVacation.imageName = appConfig.vacationImageUrl + updatedVacation.imageName;
 
         // Send updatedVacation to redux global state and activate reducer
-        vacationStore.dispatch({ type: VacationsActionType.UpdateVacation, payload: updatedVacation });
+        adminVacationStore.dispatch({ type: VacationsActionType.UpdateVacation, payload: updatedVacation });
 
     }
 
@@ -89,7 +88,7 @@ class AdminVacationService {
         await axios.delete(appConfig.adminVacationsUrl + vacationId);
 
         // Send deleted id to redux global state and activate reducer
-        vacationStore.dispatch({ type: VacationsActionType.DeleteVacation, payload: vacationId });
+        adminVacationStore.dispatch({ type: VacationsActionType.DeleteVacation, payload: vacationId });
 
     }
 

@@ -1,3 +1,4 @@
+import Login from "../../AuthArea/Login/Login";
 import Header from "../../LayoutArea/Header/Header";
 import "./Home.css";
 
@@ -6,6 +7,8 @@ function Home(): JSX.Element {
         <div className="Home">
             
                 <Header />
+
+                <Login />
 			
         </div>
     );
