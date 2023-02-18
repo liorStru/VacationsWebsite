@@ -4,6 +4,8 @@ class AppConfig {
     public loginUrl = "http://localhost:4000/api/auth/login/";
     public adminVacationsUrl = "http://localhost:4000/api/admin/vacations/";
     public userVacationsUrl = "http://localhost:4000/api/users/vacations/";
+    public followVacationUrl = "http://localhost:4000/api/users/follow/";
+    public unfollowVacationUrl = "http://localhost:4000/api/users/unfollow/";
     public vacationImageUrl = "http://localhost:4000/api/vacations/images/";
     
 }

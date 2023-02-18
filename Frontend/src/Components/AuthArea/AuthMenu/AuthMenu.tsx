@@ -23,10 +23,9 @@ function AuthMenu(): JSX.Element {
 
     }, []);
 
+    // Use authService for logout
     function logout() {
-
         authService.logout();
-        
     }
 
     return (
@@ -35,7 +34,6 @@ function AuthMenu(): JSX.Element {
             {!user && <>
 
                 <span>Hello Guest | </span>
-
 
                 <NavLink to="/login">Login</NavLink>
 

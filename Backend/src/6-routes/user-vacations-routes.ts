@@ -30,6 +30,7 @@ router.post("/users/follow/:vacationId", verifyLoggedIn, async (request: Request
     catch (err: any) {
         next(err);
     }
+    
 });
 
 // DELETE http://localhost:4000/api/users/unfollow/:vacationId

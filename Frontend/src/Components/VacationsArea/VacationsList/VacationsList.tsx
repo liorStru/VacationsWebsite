@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 import AdminVacationModel from "../../../Models/AdminVacationModel";
 import UserModel from "../../../Models/UserModel";
 import UserVacationModel from "../../../Models/UserVacationModel";
+import { adminVacationStore } from "../../../Redux/AdminVacationsState";
 import { authStore } from "../../../Redux/AuthState";
+import { UserVacationStore } from "../../../Redux/UserVacationState";
 import adminVacationService from "../../../Services/AdminVacationsService";
 import userVacationsService from "../../../Services/UserVacationsService";
 import notify from "../../../Utils/Notify";
@@ -58,20 +60,24 @@ function VacationsList(): JSX.Element {
                 .catch(err => notify.error(err));
         }
 
-        // // Subscribe to changes in user vacations
-        // UserVacationStore.subscribe(() => setUserVacations(UserVacationStore.getState().vacations));
+        // Subscribe to changes in user vacations
+        UserVacationStore.subscribe(() => setUserVacations(UserVacationStore.getState().vacations));
 
-        // // Subscribe to changes in admin vacations
-        // if (user?.role === "Admin") {
-        //     vacationStore.subscribe(() => setVacations(vacationStore.getState().vacations));
-        // }
+        // Subscribe to changes in admin vacations
+        if (user?.role === "Admin") {
+            adminVacationStore.subscribe(() => setVacations(adminVacationStore.getState().vacations));
+        }
 
     // Listen to user changes
-    }, [user]);
+    }, [user, UserVacations]);
 
+    console.log(UserVacations);
+    
     return (
 
         <div className="VacationsList">
+
+            {/* Return UI for admin or user */}
             {user?.role === "Admin" ? (
                 <>
                     {/* Spinner when loading vacations */}
