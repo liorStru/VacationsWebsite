@@ -3,13 +3,16 @@ import Login from "../../AuthArea/Login/Login";
 import Register from "../../AuthArea/Register/Register";
 import Home from "../../HomeArea/Home/Home";
 import AddVacation from "../../VacationsArea/AddVacation/AddVacation";
+import DisplayVacations from "../../VacationsArea/DisplayVacations/DisplayVacations";
 import EditVacation from "../../VacationsArea/EditVacation/EditVacation";
 import VacationDetails from "../../VacationsArea/VacationDetails/VacationDetails";
 import VacationsList from "../../VacationsArea/VacationsList/VacationsList";
 import PageNotFound from "../PageNotFound/PageNotFound";
 
 function Routing(): JSX.Element {
+
     return (
+        
         <Routes>
 
             {/* Register */}
@@ -22,7 +25,8 @@ function Routing(): JSX.Element {
             <Route path="/home" element={<Home />} />
 
             {/* Vacations list */}
-            <Route path="/vacations" element={<VacationsList />} />
+            {/* <Route path="/vacations" element={<VacationsList />} /> */}
+            <Route path="/vacations" element={<DisplayVacations />} />
 
             {/* Vacation Details */}
             <Route path="/vacations/details/:vacationId" element={<VacationDetails />} />

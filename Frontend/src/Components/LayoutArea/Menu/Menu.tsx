@@ -6,11 +6,10 @@ import AuthMenu from "../../AuthArea/AuthMenu/AuthMenu";
 import "./Menu.css";
 
 function Menu(): JSX.Element {
+
     const [user, setUser] = useState<UserModel>();
 
-
     useEffect(() => {
-
 
         // Get user from state into setUser
         setUser(authStore.getState().user);
@@ -26,16 +25,18 @@ function Menu(): JSX.Element {
     return (
         <div className="Menu">
 
+            {/* Login/logiut menu */}
             <AuthMenu />
 
-            <NavLink to="/home">Home</NavLink>
-            <span> | </span>
+            {/* If admin show menu  */}
             {user?.role === "Admin" &&
-            <>
-            <NavLink to="/vacations">Vacations</NavLink>
-            <span> | </span>
-            <NavLink to="/add">Add</NavLink>
-            </>
+                <>
+                    <NavLink to="/vacations">Vacations</NavLink>
+                    <span> | </span>
+                    < NavLink to="/vacations/new">Add Vacation</NavLink>
+                    <span> | </span>
+                    <NavLink to="#">Reports</NavLink>
+                </>
             }
         </div>
     );

@@ -170,3 +170,12 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/react,node,git
+
+# HomeArea
+# UserVacationCard
+# VacationsCard
+# VacationList
+# AdminVacationModel
+# UserVacationModel
+# AdminVacationState
+# UserVacationState

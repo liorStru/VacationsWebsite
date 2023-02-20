@@ -2,19 +2,45 @@ import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import AdminVacationModel from "../../../Models/AdminVacationModel";
+import VacationModel from "../../../Models/VacationModel";
 import adminVacationService from "../../../Services/AdminVacationsService";
 import notify from "../../../Utils/Notify";
 import "./AddVacation.css";
 
 function AddVacation(): JSX.Element {
 
-    const { register, handleSubmit, formState } = useForm<AdminVacationModel>();
+    // const { register, handleSubmit, formState } = useForm<AdminVacationModel>();
+    // const navigate = useNavigate();
+    // const [startDate, setStartDate] = useState(new Date());
+    // const formRef = useRef(null);
+
+    //  // OnSubmit adds new vacation 
+    // async function send(vacation: AdminVacationModel) {
+
+    //     try {
+
+    //         // Extract image from vacation.image
+    //         vacation.image = (vacation.image as unknown as FileList)[0];
+
+    //         // Use service for adding new vacation
+    //         await adminVacationService.addVacation(vacation);
+    //         notify.success("Vacation added successfully");
+
+    //         // Return to vacations list
+    //         navigate("/vacations");
+    //     }
+    //     catch (err: any) {
+    //         notify.error(err);
+    //     }
+
+    // }
+    const { register, handleSubmit, formState } = useForm<VacationModel>();
     const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
     const formRef = useRef(null);
 
      // OnSubmit adds new vacation 
-    async function send(vacation: AdminVacationModel) {
+    async function send(vacation: VacationModel) {
 
         try {
 

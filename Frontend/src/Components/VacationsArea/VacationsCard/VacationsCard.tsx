@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import AdminVacationModel from "../../../Models/AdminVacationModel";
-import "./VacationsCard.css";
 
 interface VacationsCardProps {
     vacation: AdminVacationModel;
