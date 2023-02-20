@@ -18,8 +18,18 @@ import "./VacationsList.css";
 function VacationsList(): JSX.Element {
 
     const [vacations, setVacations] = useState<AdminVacationModel[]>([]);
-    const [UserVacations, setUserVacations] = useState<UserVacationModel[]>([]);
+    const [userVacations, setUserVacations] = useState<UserVacationModel[]>([]);
     const [user, setUser] = useState<UserModel>();
+
+
+    // State for pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+
+    // page pagintion logic
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = userVacations.slice(indexOfFirstItem, indexOfLastItem);
 
     // useEffect(() => {
 
@@ -68,11 +78,24 @@ function VacationsList(): JSX.Element {
             adminVacationStore.subscribe(() => setVacations(adminVacationStore.getState().vacations));
         }
 
-    // Listen to user changes
-    }, [user, UserVacations]);
+        // Listen to user changes
+    }, [user, userVacations]);
 
-    console.log(UserVacations);
-    
+    // onClkick next page
+    const nextPage = () => {
+        if (currentPage < Math.ceil(userVacations.length / itemsPerPage)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    // onClkick previous page
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+
     return (
 
         <div className="VacationsList">
@@ -96,7 +119,13 @@ function VacationsList(): JSX.Element {
             ) : (
                 <div>
                     {/* displaying vacations using UserVacationCard */}
-                    {UserVacations.map(v => <UserVacationCard key={v.vacationId} vacation={v} />)}
+                    {/* {userVacations.map(v => <UserVacationCard key={v.vacationId} vacation={v} />)} */}
+                    {currentItems.map(v => <UserVacationCard key={v.vacationId} vacation={v} />)}
+                    <div>
+                        {/* next and previous page */}
+                        <button onClick={prevPage}>Previous Page</button>
+                        <button onClick={nextPage}>Next Page</button>
+                    </div>
 
                 </div>
             )}
