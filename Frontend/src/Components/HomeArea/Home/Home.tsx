@@ -1,3 +1,4 @@
+import Login from "../../AuthArea/Login/Login";
 import "./Home.css";
 
 function Home(): JSX.Element {
@@ -6,7 +7,7 @@ function Home(): JSX.Element {
             
                 {/* <Header /> */}
 
-                {/* <Login /> */}
+                <Login />
 			
         </div>
     );

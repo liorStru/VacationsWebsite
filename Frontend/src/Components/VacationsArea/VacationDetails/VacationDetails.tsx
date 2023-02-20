@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import AdminVacationModel from "../../../Models/AdminVacationModel";
+import VacationModel from "../../../Models/VacationModel";
 import adminVacationService from "../../../Services/AdminVacationsService";
 import notify from "../../../Utils/Notify";
 import Spinner from "../../SharedArea/Spinner/Spinner";
@@ -12,7 +12,7 @@ function VacationDetails(): JSX.Element {
     const params = useParams();
     const navigate = useNavigate();
 
-    const [vacation, setVacation] = useState<AdminVacationModel>();
+    const [vacation, setVacation] = useState<VacationModel>();
 
     useEffect(() => {
         adminVacationService.getOneVacation(+params.vacationId)
@@ -21,6 +21,7 @@ function VacationDetails(): JSX.Element {
             })
             .catch(err => notify.error(err));
     }, []);
+
 
     async function deleteVacation() {
         try {
@@ -51,9 +52,9 @@ function VacationDetails(): JSX.Element {
                 <>
                     <h2>{vacation.destination}</h2>
                     <h4>Description: {vacation.description}</h4>
-                    <h4>Dates: {AdminVacationModel.formatTime(vacation.startDate)} - {AdminVacationModel.formatTime(vacation.endDate)}</h4>
+                    <h4>Dates: {VacationModel.formatTime(vacation.startDate)} - {VacationModel.formatTime(vacation.endDate)}</h4>
                     <h5>Price: {vacation.price}</h5>
-                    <img src={vacation.imageName} />
+                    <img alt="vacation" src={vacation.imageName} />
 
                     <br /><br />
 

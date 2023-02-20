@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CredentialsModel from "../../../Models/CredentialsModel";
 import authService from "../../../Services/AuthService";
 import notify from "../../../Utils/Notify";
+import Header from "../../LayoutArea/Header/Header";
 import "./Login.css";
 
 function Login(): JSX.Element {
@@ -30,28 +31,32 @@ function Login(): JSX.Element {
     };
 
     return (
-        <div className="Login Box">
-            <h2>Login</h2>
+        <>
+            <Header />
 
-            <form onSubmit={handleSubmit(send)} ref={formRef}>
+            <div className="Login Box">
 
-                <label>Email:</label>
-                <input type="text" {...register("email", CredentialsModel.emailValidation)} />
-                <span className="Err">{formState.errors.email?.message}</span>
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit(send)} ref={formRef}>
 
-                <label>Password:</label>
-                <input type="password" {...register("password", CredentialsModel.passwordValidation)} />
-                <span className="Err">{formState.errors.password?.message}</span>
+                    <label>Email:</label>
+                    <input type="text" {...register("email", CredentialsModel.emailValidation)} />
+                    <span className="Err">{formState.errors.email?.message}</span>
 
-                <button>Login</button>
-                <button type="button" onClick={handleClear}>Clear</button>
+                    <label>Password:</label>
+                    <input type="password" {...register("password", CredentialsModel.passwordValidation)} />
+                    <span className="Err">{formState.errors.password?.message}</span>
 
-                <span>
-                    Not a member? <NavLink to="/register">register here</NavLink>
-                </span>
+                    <button>Login</button>
+                    <button type="button" onClick={handleClear}>Clear</button>
 
-            </form>
-        </div>
+                    <span>
+                        Not a member? <NavLink to="/register">register here</NavLink>
+                    </span>
+
+                </form>
+            </div>
+        </>
     );
 }
 

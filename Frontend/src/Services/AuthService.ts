@@ -2,8 +2,8 @@ import axios from "axios";
 import CredentialsModel from "../Models/CredentialsModel";
 import UserModel from "../Models/UserModel";
 import { AuthActionType, authStore } from "../Redux/AuthState";
-import { VacationsActionType, adminVacationStore } from "../Redux/AdminVacationsState";
 import appConfig from "../Utils/AppConfig";
+import { VacationsActionType, VacationsStore } from "../Redux/VacationsState";
 
 class AuthService {
 
@@ -40,7 +40,7 @@ class AuthService {
         authStore.dispatch({ type: AuthActionType.Logout });
 
         // Empty vacation store after logout
-        adminVacationStore.dispatch({ type: VacationsActionType.ResetVacations, payload: [] });
+        VacationsStore.dispatch({ type: VacationsActionType.ResetVacations, payload: [] });
 
     }
 
