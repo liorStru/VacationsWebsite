@@ -25,7 +25,7 @@ function Menu(): JSX.Element {
     return (
         <div className="Menu">
 
-            {/* Login/logiut menu */}
+            {/* Login/logout menu */}
             <AuthMenu />
 
             {/* If admin show menu  */}

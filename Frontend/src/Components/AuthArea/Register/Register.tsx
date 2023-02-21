@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import authService from "../../../Services/AuthService";
 import notify from "../../../Utils/Notify";
@@ -22,8 +22,7 @@ function Register(): JSX.Element {
             notify.success("Registered successfully");
 
             // navigate to vacations
-            // navigate("/vacations");
-            navigate("/login");
+            navigate("/vacations");
         }
         catch (err: any) {
             notify.error(err);
@@ -32,9 +31,9 @@ function Register(): JSX.Element {
 
     // Clears form on click
     const handleClear = () => {
-      formRef.current.reset();
+        formRef.current.reset();
     };
-    
+
     return (
         <div className="Register Box">
 
@@ -60,6 +59,10 @@ function Register(): JSX.Element {
 
                 <button>Register</button>
                 <button type="button" onClick={handleClear}>Clear</button>
+
+                <span>
+                    Already a member? <NavLink to="/login">login</NavLink>
+                </span>
 
             </form>
 

@@ -51,7 +51,7 @@ function Login(): JSX.Element {
                     <button type="button" onClick={handleClear}>Clear</button>
 
                     <span>
-                        Not a member? <NavLink to="/register">register here</NavLink>
+                        Not a member? <NavLink to="/register">register</NavLink>
                     </span>
 
                 </form>

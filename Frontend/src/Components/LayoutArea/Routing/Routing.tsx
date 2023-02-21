@@ -6,6 +6,7 @@ import AddVacation from "../../VacationsArea/AddVacation/AddVacation";
 import DisplayVacations from "../../VacationsArea/DisplayVacations/DisplayVacations";
 import EditVacation from "../../VacationsArea/EditVacation/EditVacation";
 import VacationDetails from "../../VacationsArea/VacationDetails/VacationDetails";
+import VacationsList from "../../VacationsArea/VacationsList/VacationsList";
 import PageNotFound from "../PageNotFound/PageNotFound";
 
 function Routing(): JSX.Element {
@@ -24,7 +25,8 @@ function Routing(): JSX.Element {
             <Route path="/home" element={<Home />} />
 
             {/* Vacations list */}
-            <Route path="/vacations" element={<DisplayVacations />} />
+            {/* <Route path="/vacations" element={<DisplayVacations />} /> */}
+            <Route path="/vacations" element={<VacationsList />} />
 
             {/* Vacation Details */}
             <Route path="/vacations/details/:vacationId" element={<VacationDetails />} />

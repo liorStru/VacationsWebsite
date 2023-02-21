@@ -1,6 +1,6 @@
 import { ChangeEvent, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import VacationModel from "../../../Models/VacationModel";
 import adminVacationService from "../../../Services/AdminVacationsService";
 import notify from "../../../Utils/Notify";
@@ -13,7 +13,7 @@ function AddVacation(): JSX.Element {
     const [startDate, setStartDate] = useState(new Date());
     const formRef = useRef(null);
 
-     // OnSubmit adds new vacation 
+    // OnSubmit adds new vacation 
     async function send(vacation: VacationModel) {
 
         try {
@@ -77,7 +77,10 @@ function AddVacation(): JSX.Element {
                 <span className="Err">{formState.errors.image?.message}</span>
 
                 <button>Add</button>
+
                 <button type="button" onClick={handleClear}>Clear</button>
+
+                <button><NavLink to="/vacations">Back</NavLink></button>
 
             </form>
         </div>

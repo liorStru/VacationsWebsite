@@ -66,19 +66,31 @@ function DisplayVacations(): JSX.Element {
     // Sets isFollowing according to checkbox
     const handleFollowingChange = () => {
         setIsFollowing(!isFollowing);
+
+        // set page to 1 on every click
+        setCurrentPage(1);
+
     };
-    
+
     // Sets isUpcoming according to checkbox
     const handleUpcomingChange = () => {
         setIsUpcoming(!isUpcoming);
+
+        // set page to 1 on every click
+        setCurrentPage(1);
+
     };
 
     // Sets isOngoing according to checkbox
     const handleOngoingChange = () => {
         setIsOngoing(!isOngoing);
+
+        // set page to 1 on every click
+        setCurrentPage(1);
+
     };
 
-    // Update vacations with to filter based on checkbox state
+    // Update vacations with filter based on checkbox state
     currentVacations = vacations
         .filter(v => !isFollowing || v.isFollowing === 1)
         .filter(v => !isUpcoming || new Date(v.startDate) > new Date())
@@ -106,31 +118,32 @@ function DisplayVacations(): JSX.Element {
             {vacations.length === 0 && <Spinner />}
 
             <h2>Our Vacations</h2>
-
-            {/* Filtering checkboxes */}
-            <div>
-                <label>
-                    <input type="checkbox" checked={isFollowing} onChange={handleFollowingChange} />
-                    Liked vacations
-                </label>
-                <label>
-                    <input type="checkbox" checked={isUpcoming} onChange={handleUpcomingChange} />
-                    Upcoming vacations
-                </label>
-                <label>
-                    <input type="checkbox" checked={isOngoing} onChange={handleOngoingChange} />
-                    Ongoing vacations
-                </label>
-            </div>
-
+            {user?.role === "User" &&
+                <>
+                    {/* Filtering checkboxes */}
+                    <label>
+                        <input type="checkbox" checked={isFollowing} onChange={handleFollowingChange} />
+                        Liked vacations
+                    </label>
+                    <label>
+                        <input type="checkbox" checked={isUpcoming} onChange={handleUpcomingChange} />
+                        Upcoming vacations
+                    </label>
+                    <label>
+                        <input type="checkbox" checked={isOngoing} onChange={handleOngoingChange} />
+                        Ongoing vacations
+                    </label>
+                </>
+            }
+            
             {/* Display vacations  */}
             <div>
                 {currentVacations.map(v => <VacationCard key={v.vacationId} vacation={v} />)}
             </div>
 
             <div>
-                {/* next and previous page */}
                 <button onClick={prevPage}>Previous Page</button>
+                {currentPage}
                 <button onClick={nextPage}>Next Page</button>
             </div>
 

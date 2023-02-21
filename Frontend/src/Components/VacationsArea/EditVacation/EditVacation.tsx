@@ -90,7 +90,7 @@ function EditVacation(): JSX.Element {
                 <span className="Err">{formState.errors.description?.message}</span>
 
                 {/* <label>Start Date: </label> */}
-                <input type="date" placeholder="Start date.." {...register("startDate", VacationModel.startDateValidation)} onChange={handleStartDateChange} min={new Date().toISOString().substring(0, 10)} />
+                <input type="date" placeholder="Start date.." {...register("startDate", VacationModel.startDateValidation)} onChange={handleStartDateChange}  />
                 <span className="Err">{formState.errors.startDate?.message}</span>
 
                 {/* <label>End Date: </label> */}
