@@ -1,0 +1,10 @@
+.vacationsReport {
+
+    width: 100%;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+

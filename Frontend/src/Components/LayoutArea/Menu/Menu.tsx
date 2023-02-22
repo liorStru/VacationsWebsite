@@ -22,6 +22,7 @@ function Menu(): JSX.Element {
         });
 
     }, []);
+
     return (
         <div className="Menu">
 
@@ -35,7 +36,7 @@ function Menu(): JSX.Element {
                     <span> | </span>
                     < NavLink to="/vacations/new">Add Vacation</NavLink>
                     <span> | </span>
-                    <NavLink to="#">Reports</NavLink>
+                    <NavLink to="/vacations/reports">Reports</NavLink>
                 </>
             }
         </div>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from 'react-paginate';
+import { useNavigate } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import VacationModel from "../../../Models/VacationModel";
 import { authStore } from "../../../Redux/AuthState";
 import { VacationsStore } from "../../../Redux/VacationsState";
 import adminVacationService from "../../../Services/AdminVacationsService";
+import authService from "../../../Services/AuthService";
 import userVacationsService from "../../../Services/UserVacationsService";
 import notify from "../../../Utils/Notify";
 import Spinner from "../../SharedArea/Spinner/Spinner";
@@ -12,6 +14,7 @@ import VacationCard from "../VacationCard/VacationCard";
 import "./VacationsList.css";
 
 function VacationsList(): JSX.Element {
+    const navigate = useNavigate();
 
     // States for vacations and user
     const [vacations, setVacations] = useState<VacationModel[]>([]);
@@ -23,7 +26,7 @@ function VacationsList(): JSX.Element {
     const [inDateRangeFilter, setInDateRangeFilter] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
 
-    // Update the current page when the filters change
+    // Update the current page to 0 when the filters change
     useEffect(() => {
         setCurrentPage(0);
     }, [isFollowingFilter, inFutureFilter, inDateRangeFilter]);
@@ -31,8 +34,16 @@ function VacationsList(): JSX.Element {
     //  Get user form store
     useEffect(() => {
         setUser(authStore.getState().user);
+
+        // If no token
+        if (!authService.isLoggedIn()) {
+
+            // navigate to login
+            navigate("/login");
+        }
     }, []);
 
+    // 
     useEffect(() => {
 
         // getVacations depending on user
@@ -54,6 +65,7 @@ function VacationsList(): JSX.Element {
         );
 
         return () => unsubscribe();
+
     }, [user]);
 
     // vacations per page
@@ -117,8 +129,8 @@ function VacationsList(): JSX.Element {
                     pageRangeDisplayed={5}
                     pageCount={pageCount}
                     previousLabel="previous"
-                    containerClassName="pagination"
                     activeClassName="active"
+                    containerClassName="pagination"
                 />
             )}
         </div>

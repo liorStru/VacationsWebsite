@@ -6,13 +6,9 @@ import { authStore } from "../../../Redux/AuthState";
 import userVacationsService from "../../../Services/UserVacationsService";
 import "./VacationCard.css";
 
-
-
 interface VacationCardProps {
     vacation: VacationModel;
 }
-
-
 
 function VacationCard(props: VacationCardProps): JSX.Element {
     const [user, setUser] = useState<UserModel>();
@@ -23,7 +19,6 @@ function VacationCard(props: VacationCardProps): JSX.Element {
         setUser(authStore.getState().user);
 
     }, [])
-
 
     // Handle checkbox onChange 
     function handleFollowing(event: ChangeEvent<HTMLInputElement>) {
@@ -54,7 +49,6 @@ function VacationCard(props: VacationCardProps): JSX.Element {
     return (
         <div className="VacationCard">
 
-
             {user?.role === "Admin" ? (
                 <>
                     {props.vacation.destination}
@@ -69,7 +63,6 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                         <NavLink to={"/vacations/details/" + props.vacation.vacationId}>
                             <img alt="vacation" src={props.vacation.imageName} />
                         </NavLink>
-
 
                     </div>
                 </>

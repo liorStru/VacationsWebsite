@@ -3,13 +3,13 @@ import appConfig from "../2-utils/app-config";
 import dal from "../2-utils/dal";
 import imageHandler from "../2-utils/image-handler";
 import { ResourceNotFoundError } from "../4-models/client-errors";
+import ReportModel from "../4-models/report-model";
 import VacationModel from "../4-models/vacation-model";
 
 // Get all vacations
 async function getAllVacations(): Promise<VacationModel[]> {
 
     // Create sql query and execute
-    // const sql = "SELECT * FROM vacations ORDER BY startDate";
     const sql = `SELECT *, CONCAT( ?, imageName) AS imageName FROM vacations ORDER BY startDate`;
     const vacations = await dal.execute(sql, appConfig.vacationImagesAddress);
     
@@ -17,7 +17,7 @@ async function getAllVacations(): Promise<VacationModel[]> {
     return vacations;
 }
 
-
+// Get one vacation
 async function getOneVacation(vacationId: number): Promise<VacationModel[]> {
 
     // Create sql query and execute
@@ -127,10 +127,31 @@ async function getImageNameFromDb(vacationId: number): Promise<string> {
 
 }
 
+// Get followers and destinations for admin report
+async function getFollowersByDestination(): Promise<ReportModel[]> {
+
+    // query for what is needed for report
+    const sql = `
+    SELECT DISTINCT
+        V.destination,
+        COUNT(F.userId) AS followersCount
+    FROM vacations AS V LEFT JOIN followers AS F
+    ON V.vacationId = F.vacationId
+    GROUP BY V.vacationId
+    `;
+
+    // get report using dal
+    const report = await dal.execute(sql);
+
+    // return admin report
+    return report;
+}
+
 export default {
     getAllVacations,
     getOneVacation,
     addVacation,
     updateVacation,
-    deleteVacation
+    deleteVacation,
+    getFollowersByDestination
 }

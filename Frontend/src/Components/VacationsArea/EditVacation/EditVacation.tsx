@@ -98,7 +98,7 @@ function EditVacation(): JSX.Element {
                 <span className="Err">{formState.errors.endDate?.message}</span>
 
                 {/* <label>Price: </label> */}
-                <input type="number" step="0.01" placeholder="Price.."  {...register("price", VacationModel.priceValidation)} />
+                <input type="number" step="0.01" placeholder="Price.." pattern="$" {...register("price", VacationModel.priceValidation)} />
                 <span className="Err">{formState.errors.price?.message}</span>
 
                 <label>Image: </label>

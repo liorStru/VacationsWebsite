@@ -81,4 +81,15 @@ router.get("/vacations/images/:imageName", async (request: Request, response: Re
     }
 });
 
+// GET http://localhost:4000/api/admin/vacations/reports
+router.get("/admin/vacations/reports", verifyAdmin, async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        const report = await adminVacationsServices.getFollowersByDestination();
+        response.json(report);
+    }
+    catch (err: any) {
+        next(err);
+    }
+});
+
 export default router;

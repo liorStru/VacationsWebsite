@@ -1,4 +1,5 @@
 import axios from "axios";
+import ReportModel from "../Models/ReportModel";
 import VacationModel from "../Models/VacationModel";
 import { VacationsActionType, VacationsStore } from "../Redux/VacationsState";
 import appConfig from "../Utils/AppConfig";
@@ -90,6 +91,13 @@ class AdminVacationService {
         // Send deleted id to redux global state and activate reducer
         VacationsStore.dispatch({ type: VacationsActionType.DeleteVacation, payload: vacationId });
 
+    }
+
+    public async getFollowersByDestination(): Promise<ReportModel[]> {
+        const response = await axios.get<ReportModel[]>(appConfig.adminReportUrl);
+        const report = response.data
+
+        return report
     }
 }
 
