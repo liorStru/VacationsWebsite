@@ -1,9 +1,56 @@
-.VacationsList .pagination  {
-	
+  .VacationsList .pagination {
+    display: flex;
     list-style: none;
+    justify-content: center;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .VacationsList .pagination li {
+    margin: 0 5px;
+  }
+  
 
-}
+  .VacationsList .pagination li a {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #5f6368;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50%;
+    background-color: #d69c9c;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 1px 2px 0 rgba(60, 64, 67, 0.149);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .VacationsList .pagination li a:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .VacationsList .pagination li.active a {
+    background-color: #000;
+    color: #fff;
+    cursor: default;
+  }
+  
+  .VacationsList .pagination li.disabled a {
+    cursor: pointer;
+  }
+  
+  .VacationsList .pagination li:first-child a,
+  .pagination li:last-child a {
+    background-color: transparent;
+    color: #000;
+  }
+  
+  .VacationsList .pagination li:first-child a:hover,
+  .pagination li:last-child a:hover {
+    background-color: transparent;
+  }
+  
 
-
-
-
+  
+  

@@ -124,11 +124,11 @@ function VacationsList(): JSX.Element {
                 // Pagination props
                 <ReactPaginate
                     breakLabel="..."
-                    nextLabel="next"
+                    nextLabel="➡️"
                     onPageChange={handlePages}
                     pageRangeDisplayed={5}
                     pageCount={pageCount}
-                    previousLabel="previous"
+                    previousLabel="⬅️"
                     activeClassName="active"
                     containerClassName="pagination"
                 />
