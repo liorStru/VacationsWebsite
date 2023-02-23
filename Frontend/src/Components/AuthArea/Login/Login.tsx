@@ -1,18 +1,15 @@
-import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CredentialsModel from "../../../Models/CredentialsModel";
 import authService from "../../../Services/AuthService";
 import notify from "../../../Utils/Notify";
-import Header from "../../LayoutArea/Header/Header";
 import "./Login.css";
 
 function Login(): JSX.Element {
 
     const { register, handleSubmit, formState } = useForm<CredentialsModel>();
     const navigate = useNavigate();
-    const formRef = useRef(null);
 
     async function send(credentials: CredentialsModel) {
         try {
@@ -25,21 +22,33 @@ function Login(): JSX.Element {
         }
     }
 
-    // Clears form on click
-    const handleClear = () => {
-        formRef.current.reset();
-    };
-
     return (
-        <>
-            <Header />
 
-            <div className="Login Box">
+        <div className="Login">
+            <div className="LoginWrapper">
+                <div className="Title">Login</div>
+                <form onSubmit={handleSubmit(send)} >
 
-                <h2>Login</h2>
-                <form onSubmit={handleSubmit(send)} ref={formRef}>
+                    <div className="input-container ic2">
+                        <input id="email" className="input" type="text" placeholder=" "  {...register("email", CredentialsModel.emailValidation)} />
+                        <div className="cut cut-short"></div>
+                        <label htmlFor="email" className="placeholder">Email</label>
+                        <span className="Err">{formState.errors.email?.message}</span>
+                    </div>
+                    <div className="input-container ic2">
+                        <input id="password" className="input" type="password" placeholder=" " {...register("password", CredentialsModel.passwordValidation)} />
+                        <div className="cut cut-short"></div>
+                        <label htmlFor="password" className="placeholder">Password</label>
+                        <span className="Err">{formState.errors.password?.message}</span>
 
-                    <label>Email:</label>
+                    </div>
+                    <button className="submit">Login</button>
+
+                    <div className="RegisterLink">
+                        Not a member? <NavLink to="/register"> register</NavLink>
+                    </div>
+
+                    {/* <label>Email:</label>
                     <input type="text" {...register("email", CredentialsModel.emailValidation)} />
                     <span className="Err">{formState.errors.email?.message}</span>
 
@@ -52,11 +61,13 @@ function Login(): JSX.Element {
 
                     <span>
                         Not a member? <NavLink to="/register">register</NavLink>
-                    </span>
+                    </span> */}
+
 
                 </form>
+
             </div>
-        </>
+        </div>
     );
 }
 

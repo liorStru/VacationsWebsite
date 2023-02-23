@@ -2,11 +2,12 @@ html, body, #root {
     margin: 0;
     height: 100%;
     text-align: center;
-    font-size: x-large;
+    /* font-size: x-large; */
     background-image: linear-gradient(rgb(137, 99, 137), rgb(150, 211, 237));
+    box-sizing: border-box;
 }
 
-a {
+/* a {
     color: blue;
 }
 
@@ -25,7 +26,7 @@ form > input, form > button {
 
 form > label {
     font-size: x-large;
-}
+} */
 
 .Box {
     display: inline-block;

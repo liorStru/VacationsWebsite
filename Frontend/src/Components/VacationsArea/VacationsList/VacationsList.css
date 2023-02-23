@@ -50,6 +50,13 @@
   .pagination li:last-child a:hover {
     background-color: transparent;
   }
+
+  .VacationsList .pagination .disabled {
+    display: none;
+  }
+  
+  
+  
   
 
   

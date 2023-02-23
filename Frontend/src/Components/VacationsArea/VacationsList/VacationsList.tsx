@@ -41,7 +41,7 @@ function VacationsList(): JSX.Element {
             // navigate to login
             navigate("/login");
         }
-    }, []);
+    }, [navigate]);
 
     // 
     useEffect(() => {
@@ -131,6 +131,7 @@ function VacationsList(): JSX.Element {
                     previousLabel="⬅️"
                     activeClassName="active"
                     containerClassName="pagination"
+
                 />
             )}
         </div>

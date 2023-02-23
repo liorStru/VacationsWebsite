@@ -10,7 +10,7 @@ function Layout(): JSX.Element {
                 <Menu />
             </nav>
 
-            <main>
+            <main className="Main">
                 <Routing />
             </main>
 

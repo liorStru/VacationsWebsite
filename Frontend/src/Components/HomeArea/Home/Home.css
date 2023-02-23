@@ -1,3 +1,57 @@
 .Home {
-	
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../Assets/Images/home-background.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.Home .TextWrapper {
+    color: antiquewhite;
+    text-align: left;
+    text-shadow: 2px 2px 2px black;
+    min-width: 500px;
+    backdrop-filter: blur(6px);
+    padding: 3px;
+    font-size: 27px;
+}
+
+.Home .HomeLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+    padding-left: 50px;
+    gap: 45px;
+}
+
+.Home>div:first-child {
+    order: 2;
+
+}
+
+.Home>div:last-child {
+    order: 1;
+
+}
+
+.Home .HomeLayout h4 {
+    margin: 10px;
+    color: rgb(201, 137, 142);
+}
+
+.Home .HomeLayout .TextWrapper a {
+    color: #c1cb8b;
+    /* text-decoration: none; */
+}
+
+.Home .HomeLayout .TextWrapper a:hover {
+    color: #c1cb8b;
+    font-weight: 600;
+}
+
+.Home .LoginRegister {
+    margin: 10px;
+    color: rgb(201, 137, 142);
 }

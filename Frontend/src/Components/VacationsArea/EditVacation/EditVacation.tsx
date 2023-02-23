@@ -17,10 +17,11 @@ function EditVacation(): JSX.Element {
 
 
     useEffect(() => {
+
         adminVacationService.getOneVacation(+params.vacationId)
             .then(vacation => {
 
-                setValue("vacationId", vacation.vacationId);
+                setValue("vacationId",  vacation.vacationId);
                 setValue("destination", vacation.destination);
                 setValue("description", vacation.description);
 
@@ -41,7 +42,7 @@ function EditVacation(): JSX.Element {
 
             })
             .catch(err => notify.error(err));
-    }, []);
+    }, [params, setValue]);
 
     // activated OnSubmit updates backend vacation
     async function send(vacation: VacationModel) {

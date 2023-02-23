@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
@@ -10,7 +9,6 @@ function Register(): JSX.Element {
 
     const { register, handleSubmit, formState } = useForm<UserModel>();
     const navigate = useNavigate();
-    const formRef = useRef(null);
 
     // registers user onSubmit
     async function send(user: UserModel) {
@@ -29,43 +27,80 @@ function Register(): JSX.Element {
         }
     }
 
-    // Clears form on click
-    const handleClear = () => {
-        formRef.current.reset();
-    };
-
     return (
-        <div className="Register Box">
+        // <div className="Register Box">
 
-            <h2>Register</h2>
+        //     <h2>Register</h2>
 
-            <form onSubmit={handleSubmit(send)} ref={formRef}>
+        //     <form onSubmit={handleSubmit(send)} ref={formRef}>
 
-                <label>First name:</label>
-                <input type="text" {...register("firstName", UserModel.firstNameValidation)} />
-                <span className="Err">{formState.errors.firstName?.message}</span>
+        //         <label>First name:</label>
+        //         <input type="text" {...register("firstName", UserModel.firstNameValidation)} />
+        //         <span className="Err">{formState.errors.firstName?.message}</span>
 
-                <label>Last name:</label>
-                <input type="text" {...register("lastName", UserModel.lastNameValidation)} />
-                <span className="Err">{formState.errors.lastName?.message}</span>
+        //         <label>Last name:</label>
+        //         <input type="text" {...register("lastName", UserModel.lastNameValidation)} />
+        //         <span className="Err">{formState.errors.lastName?.message}</span>
 
-                <label>Email:</label>
-                <input type="email" {...register("email", UserModel.emailValidation)} />
-                <span className="Err">{formState.errors.email?.message}</span>
+        //         <label>Email:</label>
+        //         <input type="email" {...register("email", UserModel.emailValidation)} />
+        //         <span className="Err">{formState.errors.email?.message}</span>
 
-                <label>Password:</label>
-                <input type="password" {...register("password", UserModel.passwordValidation)} />
-                <span className="Err">{formState.errors.password?.message}</span>
+        //         <label>Password:</label>
+        //         <input type="password" {...register("password", UserModel.passwordValidation)} />
+        //         <span className="Err">{formState.errors.password?.message}</span>
 
-                <button>Register</button>
-                <button type="button" onClick={handleClear}>Clear</button>
+        //         <button>Register</button>
+        //         <button type="button" onClick={handleClear}>Clear</button>
 
-                <span>
-                    Already a member? <NavLink to="/login">login</NavLink>
-                </span>
+        //         <span>
+        //             Already a member? <NavLink to="/login">login</NavLink>
+        //         </span>
 
-            </form>
+        //     </form>
 
+        // </div>
+        <div className="Register">
+
+            {/* <h2 className="RegisterHeader">Register</h2> */}
+            <div className="RegisterWrapper">
+                <div className="Title">Register</div>
+
+                <form onSubmit={handleSubmit(send)}>
+                    <div className="input-container ic2">
+                        <input id="firstName" className="input" type="text" placeholder=" " {...register("firstName", UserModel.firstNameValidation)} />
+                        <div className="cut cut-short"></div>
+                        <label htmlFor="firstName" className="placeholder">First name:</label>
+                        <span className="Err">{formState.errors.firstName?.message}</span>
+                    </div>
+                    <div className="input-container ic2">
+                        <input id="lastName" className="input" type="text" placeholder=" " {...register("lastName", UserModel.lastNameValidation)} />
+                        <div className="cut cut-short"></div>
+                        <label htmlFor="lastName" className="placeholder">Last name:</label>
+                        <span className="Err">{formState.errors.lastName?.message}</span>
+                    </div>
+
+                    <div className="input-container ic2">
+                        <input id="email" className="input" type="text" placeholder=" "  {...register("email", UserModel.emailValidation)} />
+                        <div className="cut cut-short"></div>
+                        <label htmlFor="email" className="placeholder">Email</label>
+                        <span className="Err">{formState.errors.email?.message}</span>
+                    </div>
+                    <div className="input-container ic2">
+                        <input id="password" className="input" type="password" placeholder=" " {...register("password", UserModel.passwordValidation)} />
+                        <div className="cut cut-short"></div>
+                        <label htmlFor="password" className="placeholder">Password</label>
+                        <span className="Err">{formState.errors.password?.message}</span>
+                    </div>
+
+                    <button className="submit">Register</button>
+
+                    <div className="LoginLink">
+                        Already a member? <NavLink to="/home"> Login </NavLink>
+                    </div>
+
+                </form>
+            </div>
         </div>
     );
 }

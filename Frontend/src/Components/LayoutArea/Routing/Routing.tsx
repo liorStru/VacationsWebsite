@@ -1,10 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Login from "../../AuthArea/Login/Login";
 import Register from "../../AuthArea/Register/Register";
 import Home from "../../HomeArea/Home/Home";
 import AddVacation from "../../VacationsArea/AddVacation/AddVacation";
 import EditVacation from "../../VacationsArea/EditVacation/EditVacation";
-import VacationDetails from "../../VacationsArea/VacationDetails/VacationDetails";
 import VacationsList from "../../VacationsArea/VacationsList/VacationsList";
 import VacationsReport from "../../VacationsArea/vacationsReport/vacationsReport";
 import PageNotFound from "../PageNotFound/PageNotFound";
@@ -19,7 +17,7 @@ function Routing(): JSX.Element {
             <Route path="/register" element={<Register />} />
 
             {/* Login */}
-            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<Login />} /> */}
 
             {/* Home page */}
             <Route path="/home" element={<Home />} />
@@ -28,7 +26,7 @@ function Routing(): JSX.Element {
             <Route path="/vacations" element={<VacationsList />} />
 
             {/* Vacation Details */}
-            <Route path="/vacations/details/:vacationId" element={<VacationDetails />} />
+            {/* <Route path="/vacations/details/:vacationId" element={<VacationDetails />} /> */}
 
             {/* Add vacation */}
             <Route path="/vacations/new" element={<AddVacation />} />

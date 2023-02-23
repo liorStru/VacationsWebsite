@@ -38,7 +38,7 @@ class VacationModel {
 
     public static priceValidation: RegisterOptions = {
         required: { value: true, message: "Missing price" },
-        min: { value: 100, message: "Price can't be less than 100" },
+        min: { value: 0, message: "Price can't be negative" },
         max: { value: 10000, message: "Maximum price 10,000" }
     };
 

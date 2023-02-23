@@ -13,8 +13,8 @@ class CredentialsModel {
 
     public static passwordValidation: RegisterOptions = {
         required: { value: true, message: "Missing password" },
-        minLength: { value: 2, message: "Password must be minimum 4 chars" },
-        maxLength: { value: 50, message: "Password can't exceed 256 chars" }
+        minLength: { value: 4, message: "Password must be minimum 4 chars" },
+        maxLength: { value: 256, message: "Password can't exceed 256 chars" }
     }
 }
 

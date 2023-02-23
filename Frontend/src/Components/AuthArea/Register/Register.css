@@ -1,3 +1,136 @@
 .Register {
-	
+    height: 100%;
+    display: flex;
+
 }
+
+.Register .RegisterWrapper {
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 480px;
+    padding: 15px 20px 20px 20px;
+    margin-top: 25px;
+    width: 320px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    box-shadow: 5px 5px 10px white;
+    margin: auto;
+}
+.Register .RegisterWrapper .Title {
+    color: #c1cb8b;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.Register .RegisterWrapper .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.Register .RegisterWrapper .ic2 {
+    margin-top: 20px;
+}
+
+.Register .RegisterWrapper .input-container .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 90%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+.Register .RegisterWrapper .input-container .cut {
+
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+}
+
+.Register .RegisterWrapper .input-container .cut-short {
+    width: 100px;
+}
+
+.Register .RegisterWrapper .input-container .input:focus~.cut,
+.input:not(:placeholder-shown)~.cut {
+    transform: translateY(8px);
+}
+
+.Register .RegisterWrapper .input-container .placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 15px;
+}
+
+.Register .RegisterWrapper .input-container .input:focus~.placeholder,
+.input:not(:placeholder-shown)~.placeholder {
+    transform: translateY(-37px) translateX(-5px) scale(0.60);
+}
+
+.Register .RegisterWrapper .input-container .input:not(:placeholder-shown)~.placeholder {
+    color: #808097;
+}
+
+.Register .RegisterWrapper .input-container .input:focus~.placeholder {
+    color: #c1cb8b;
+}
+
+.Register .RegisterWrapper .submit {
+    background-color: #c1cb8b;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 25px;
+    outline: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.Register .RegisterWrapper .submit:hover {
+    opacity: 0.8;
+}
+
+.Register .RegisterWrapper .submit:active {
+    background-color: #c1cb8b;
+}
+
+.Register .LoginLink {
+    
+    color: white;
+    margin-top: 20px;
+    font-size: larger;
+}
+
+.Register .LoginLink a {
+ color: #c1cb8b;
+}
+
+.Register .LoginLink a:hover {
+    font-size: 20px;
+    font-weight: 600;
+   }
+
+
+

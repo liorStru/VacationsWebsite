@@ -127,6 +127,7 @@ async function getImageNameFromDb(vacationId: number): Promise<string> {
 
 }
 
+
 // Get followers and destinations for admin report
 async function getFollowersByDestination(): Promise<ReportModel[]> {
 
