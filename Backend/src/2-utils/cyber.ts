@@ -78,6 +78,7 @@ async function verifyAdmin(request: Request): Promise<boolean> {
     return user.role === RoleModel.Admin;
 }
 
+// Extract user from token into user variable
 function getUserFromToken(request: Request): UserModel {
     const header = request.header("authorization");
     const token = header.substring(7);

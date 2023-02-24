@@ -11,7 +11,7 @@ class CredentialModel {
         this.password = user.password;
     }
 
-    //add validate
+    // Credentials validation
     private static ValidationSchema = Joi.object({
         email: Joi.string().required().email().min(2).max(50),
         password: Joi.string().required().min(2).max(256)

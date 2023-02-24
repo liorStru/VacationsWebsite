@@ -71,26 +71,26 @@ function Register(): JSX.Element {
                         <input id="firstName" className="input" type="text" placeholder=" " {...register("firstName", UserModel.firstNameValidation)} />
                         <div className="cut cut-short"></div>
                         <label htmlFor="firstName" className="placeholder">First name:</label>
-                        <span className="Err">{formState.errors.firstName?.message}</span>
+                        <span className="Error">{formState.errors.firstName?.message}</span>
                     </div>
                     <div className="input-container ic2">
                         <input id="lastName" className="input" type="text" placeholder=" " {...register("lastName", UserModel.lastNameValidation)} />
                         <div className="cut cut-short"></div>
                         <label htmlFor="lastName" className="placeholder">Last name:</label>
-                        <span className="Err">{formState.errors.lastName?.message}</span>
+                        <span className="Error">{formState.errors.lastName?.message}</span>
                     </div>
 
                     <div className="input-container ic2">
                         <input id="email" className="input" type="text" placeholder=" "  {...register("email", UserModel.emailValidation)} />
                         <div className="cut cut-short"></div>
                         <label htmlFor="email" className="placeholder">Email</label>
-                        <span className="Err">{formState.errors.email?.message}</span>
+                        <span className="Error">{formState.errors.email?.message}</span>
                     </div>
                     <div className="input-container ic2">
                         <input id="password" className="input" type="password" placeholder=" " {...register("password", UserModel.passwordValidation)} />
                         <div className="cut cut-short"></div>
                         <label htmlFor="password" className="placeholder">Password</label>
-                        <span className="Err">{formState.errors.password?.message}</span>
+                        <span className="Error">{formState.errors.password?.message}</span>
                     </div>
 
                     <button className="submit">Register</button>

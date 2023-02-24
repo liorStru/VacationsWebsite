@@ -48,6 +48,7 @@ async function deleteImage(existingImageName: string): Promise<void> {
 
 }
 
+// Taking imageName extension and adding unique name
 function createImageName(originalImageName: string): string {
 
     // Take original image extension:

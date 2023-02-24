@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import EditIcon from '@mui/icons-material/Edit';
 import UserModel from "../../../Models/UserModel";
 import VacationModel from "../../../Models/VacationModel";
 import { authStore } from "../../../Redux/AuthState";
@@ -85,7 +86,11 @@ function VacationCard(props: VacationCardProps): JSX.Element {
             {user?.role === "Admin" ? (
                 <>
                     {/* Admin vacation card */}
-                    {props.vacation.destination}
+                    <div className="DestinationContainer">
+                        {props.vacation.destination}
+                    </div>
+                        <img alt="vacation" src={props.vacation.imageName} />
+
                     <br />
                     <button onClick={handleCollapse}>
                         {isCollapsed ? "Read More" : "Read Less"}
@@ -97,11 +102,11 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                     <br />
                     {props.vacation.price}$
                     <br />
-                    <img alt="vacation" src={props.vacation.imageName} />
+
                     <br />
 
                     {/* update vacation link */}
-                    <NavLink to={"/vacations/edit/" + props.vacation.vacationId}>Edit</NavLink>
+                    <NavLink to={"/vacations/edit/" + props.vacation.vacationId}>Edit </NavLink>
                     &nbsp; | &nbsp;
 
                     {/* Delete vacation link */}
@@ -110,7 +115,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                 </>
             ) : (
                 <>
-                {/* User vacation card  */}
+                    {/* User vacation card  */}
                     {props.vacation.destination}
                     <br />
                     <button onClick={handleCollapse}>

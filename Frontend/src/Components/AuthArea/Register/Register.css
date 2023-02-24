@@ -16,6 +16,7 @@
     box-shadow: 5px 5px 10px white;
     margin: auto;
 }
+
 .Register .RegisterWrapper .Title {
     color: #c1cb8b;
     font-family: sans-serif;
@@ -117,20 +118,35 @@
 }
 
 .Register .LoginLink {
-    
+
     color: white;
     margin-top: 20px;
     font-size: larger;
 }
 
 .Register .LoginLink a {
- color: #c1cb8b;
+    color: #c1cb8b;
 }
 
 .Register .LoginLink a:hover {
     font-size: 20px;
     font-weight: 600;
-   }
+}
 
-
-
+.Register .RegisterWrapper .input-container .Error {
+    color: #e74c3c;
+    font-size: 16px;
+    animation: shake 0.5s infinite ease-in-out ;
+    position: absolute;
+    bottom: 55px;
+    left: 100px;
+}
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
+  }

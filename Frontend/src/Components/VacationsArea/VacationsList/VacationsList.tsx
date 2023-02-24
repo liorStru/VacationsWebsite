@@ -39,7 +39,7 @@ function VacationsList(): JSX.Element {
         if (!authService.isLoggedIn()) {
 
             // navigate to login
-            navigate("/login");
+            navigate("/home");
         }
     }, [navigate]);
 
@@ -97,6 +97,8 @@ function VacationsList(): JSX.Element {
             {vacations.length === 0 && <Spinner />}
 
             <h2>Our Vacations</h2>
+
+            {/* Show filters for user */}
             {user?.role === "User" &&
                 <div>
                     <label>

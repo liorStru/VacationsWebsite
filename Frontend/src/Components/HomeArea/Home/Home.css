@@ -14,14 +14,16 @@
     backdrop-filter: blur(6px);
     padding: 3px;
     font-size: 27px;
+    max-width: 600px;
 }
 
 .Home .HomeLayout {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 40px;
     align-items: center;
-    padding-right: 50px;
+    padding-right: 80px;
     padding-left: 50px;
     gap: 45px;
 }

@@ -3,7 +3,7 @@
     box-sizing: border-box;
     height: 400px;
     padding: 20px;
-    width: 320px;
+    width: 380px;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(6px);
     box-shadow: 5px 5px 10px white;
@@ -15,7 +15,8 @@
     font-family: sans-serif;
     font-size: 36px;
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .Login .LoginWrapper .input-container {
@@ -111,17 +112,37 @@
 }
 
 .Login .RegisterLink {
-    
+
     color: white;
     margin-top: 20px;
     font-size: larger;
 }
 
 .Login .LoginWrapper a {
- color: #c1cb8b;
+    color: #c1cb8b;
 }
 
 .Login .LoginWrapper a:hover {
     font-size: 20px;
     font-weight: 600;
-   }
+
+}
+
+.Login .LoginWrapper .input-container .Error {
+    color: #e74c3c;
+    font-size: 16px;
+    animation: shake 0.5s infinite ease-in-out ;
+    position: absolute;
+    bottom: 55px;
+    left: 100px;
+}
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
+  }
+

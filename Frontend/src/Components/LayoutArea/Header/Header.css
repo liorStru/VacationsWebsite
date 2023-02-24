@@ -5,3 +5,38 @@
 
 }
 
+.Header {
+    position: relative;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Header h1 {
+    font-size: 5rem;
+    text-align: center;
+    position: relative;
+    color: #F6D2A2;
+    animation: cool-header 2s ease-in-out infinite;
+  }
+  
+  @keyframes cool-header {
+    0% {
+      transform: translateY(0);
+      color: #a1aaf0;
+
+    }
+    50% {
+      transform: translateY(-15px);
+      color: #c8efc3;
+
+    }
+    100% {
+      transform: translateY(0);
+      color: #EFC3E6;
+
+    }
+  }
+
+

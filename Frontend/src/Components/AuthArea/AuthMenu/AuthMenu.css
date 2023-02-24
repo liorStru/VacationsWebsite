@@ -1,5 +1,29 @@
 .AuthMenu {
-	position: absolute;
-    top: 20px;
-    right: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: wheat;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 0px 0px 0px 10px
+}
+
+.AuthMenu > a {
+    color: #c1cb8b;
+
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.AuthMenu a:hover {
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.AuthMenu span {
+    margin-right: 7px;
 }

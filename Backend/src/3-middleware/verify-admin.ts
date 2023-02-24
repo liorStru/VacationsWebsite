@@ -5,6 +5,8 @@ import { AuthenticationError } from "../4-models/client-errors";
 async function verifyAdmin(request: Request, response: Response, next: NextFunction): Promise<void> {
 
     try{
+
+        // Check request if user is admin
         const isAdmin = await cyber.verifyAdmin(request);
 
         if(!isAdmin) {

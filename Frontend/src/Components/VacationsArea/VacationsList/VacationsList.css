@@ -1,17 +1,63 @@
-  .VacationsList .pagination {
+.VacationsList {
+    padding-top: 45px;
+    background-image: url('../../../Assets/Images/vacations-background.jpg');
+    background-attachment: fixed;
+}
+
+.VacationsList h2 {
+    margin: 0px;
+    /* margin-top: 20px; */
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    position: relative;
+    color: #F6D2A2;
+    animation: cool-header 2s ease-in-out infinite;
+    text-shadow: 1px 1px 1px #957dad,
+             1px 2px 1px #957dad,
+             1px 3px 1px #957dad,
+             1px 4px 1px #957dad,
+             1px 5px 1px #957dad,
+             1px 6px 1px #957dad,
+             1px 10px 5px rgba(16, 16, 16, 0.5),
+             1px 15px 10px rgba(16, 16, 16, 0.4),
+             1px 20px 30px rgba(16, 16, 16, 0.3),
+             1px 25px 50px rgba(16, 16, 16, 0.2);
+
+}
+
+@keyframes cool-header {
+    0% {
+        transform: translateY(0);
+        color: #a1aaf0;
+    }
+
+    50% {
+        transform: translateY(-15px);
+        color: #c8efc3;
+    }
+
+    100% {
+        transform: translateY(0);
+        color: #EFC3E6;
+    }
+}
+
+.VacationsList .pagination {
+    /* width: 100%; */
     display: flex;
-    list-style: none;
     justify-content: center;
+    list-style: none;
     margin-top: 20px;
     cursor: pointer;
-  }
-  
-  .VacationsList .pagination li {
-    margin: 0 5px;
-  }
-  
+    padding-bottom: 10px;
+}
 
-  .VacationsList .pagination li a {
+.VacationsList .pagination li {
+    margin: 0 5px;
+}
+
+.VacationsList .pagination li a {
     display: block;
     text-align: center;
     font-size: 14px;
@@ -24,40 +70,33 @@
     background-color: #d69c9c;
     box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 1px 2px 0 rgba(60, 64, 67, 0.149);
     transition: box-shadow 0.2s ease-in-out;
-  }
-  
-  .VacationsList .pagination li a:hover {
+}
+
+.VacationsList .pagination li a:hover {
     background-color: #f2f2f2;
-  }
-  
-  .VacationsList .pagination li.active a {
+}
+
+.VacationsList .pagination li.active a {
     background-color: #000;
     color: #fff;
     cursor: default;
-  }
-  
-  .VacationsList .pagination li.disabled a {
+}
+
+.VacationsList .pagination li.disabled a {
     cursor: pointer;
-  }
-  
-  .VacationsList .pagination li:first-child a,
-  .pagination li:last-child a {
+}
+
+.VacationsList .pagination li:first-child a,
+.pagination li:last-child a {
     background-color: transparent;
     color: #000;
-  }
-  
-  .VacationsList .pagination li:first-child a:hover,
-  .pagination li:last-child a:hover {
+}
+
+.VacationsList .pagination li:first-child a:hover,
+.pagination li:last-child a:hover {
     background-color: transparent;
-  }
+}
 
-  .VacationsList .pagination .disabled {
+.VacationsList .pagination .disabled {
     display: none;
-  }
-  
-  
-  
-  
-
-  
-  
+}
