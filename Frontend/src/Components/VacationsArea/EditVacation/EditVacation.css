@@ -1,13 +1,258 @@
-.EditVacation img {
-	height: 120px;
-    width: 120px;
-    /* position: absolute;
-    right: 20px;
-    bottom: 20px; */
+
+
+.EditVacation {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.EditVacation .ImagePreview {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
+.EditVacation .EditWrapper {
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 510px;
+    padding: 10px 20px 10px 20px;
+    width: 380px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    box-shadow: 5px 5px 10px white;
 }
+
+.EditVacation  .Title {
+    color: #c1cb8b;
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    margin: 0px;
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    color: #F6D2A2;
+    animation: cool-header 2s ease-in-out infinite;
+    text-shadow: 1px 1px 1px #957dad,
+             1px 2px 1px #957dad,
+             1px 3px 1px #957dad,
+             1px 4px 1px #957dad,
+             1px 5px 1px #957dad,
+             1px 6px 1px #957dad,
+             1px 10px 5px rgba(16, 16, 16, 0.5),
+             1px 15px 10px rgba(16, 16, 16, 0.4),
+             1px 20px 30px rgba(16, 16, 16, 0.3),
+             1px 25px 50px rgba(16, 16, 16, 0.2);
+}
+
+@keyframes cool-header {
+    0% {
+        transform: translateY(0);
+        color: #a1aaf0;
+    }
+
+    50% {
+        transform: translateY(-15px);
+        color: #c8efc3;
+    }
+
+    100% {
+        transform: translateY(0);
+        color: #EFC3E6;
+    }
+}
+.EditVacation .EditWrapper .input-container {
+    height: 45px;
+    position: relative;
+    width: 100%;
+}
+
+.EditVacation .EditWrapper .ic2 {
+    margin-top: 20px;
+}
+
+.EditVacation .EditWrapper .input-container .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 90%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+.EditVacation .EditWrapper .input-container .cut {
+
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+}
+
+.EditVacation .EditWrapper .input-container .cut-short {
+    width: 100px;
+}
+
+.EditVacation .EditWrapper .input-container .input:focus~.cut,
+.input:not(:placeholder-shown)~.cut {
+    transform: translateY(8px);
+}
+
+.EditVacation .EditWrapper .input-container .placeholder {
+    color: #9595b5;
+    font-family: sans-serif;
+    left: 15px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 15px;
+}
+
+
+
+.EditVacation .EditWrapper .input-container .input:focus~.placeholder,
+.input:not(:placeholder-shown)~.placeholder {
+    transform: translateY(-32px) translateX(-5px) scale(0.75);
+}
+
+.EditVacation .EditWrapper .input-container .input:not(:placeholder-shown)~.placeholder {
+    color: #808097;
+}
+
+.EditVacation .EditWrapper .input-container .input:focus~.placeholder {
+    color: #c1cb8b;
+}
+
+
+/*  */
+.EditVacation .EditWrapper .input-container .placeholderEnd {
+    color: #9595b5;
+    font-family: sans-serif;
+    left: 15px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 15px;
+}
+
+
+
+.EditVacation .EditWrapper .input-container .input:focus~.placeholderEnd,
+.input:not(:placeholder-shown)~.placeholderEnd {
+    transform: translateY(-32px) translateX( 170px) scale(0.75);
+}
+
+.EditVacation .EditWrapper .input-container .input:not(:placeholder-shown)~.placeholderEnd {
+    color: #808097;
+}
+
+.EditVacation .EditWrapper .input-container .input:focus~.placeholderEnd {
+    color: #c1cb8b;
+}
+/* ------ */
+.EditVacation .EditWrapper .DateContainer .input-container input {
+    width: 50%;
+}
+.EditVacation .EditWrapper .submit {
+    background-color: #c1cb8b;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    margin: 5px;
+    outline: 0;
+    text-align: center;
+    width: 94%;
+}
+
+.EditVacation .EditWrapper .submit:hover {
+    opacity: 0.8;
+}
+
+.EditVacation .EditWrapper .submit:active {
+    background-color: #c1cb8b;
+}
+
+.EditVacation .EditWrapper .Back {
+    background-color: #c1cb8b;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    margin: 5px;
+    outline: 0;
+    text-align: center;
+    width: 45%;
+}
+
+.EditVacation .EditWrapper .Back a {
+    text-decoration: none;
+    color: white;
+}
+
+.EditVacation .EditWrapper .Back:hover {
+    opacity: 0.8;
+}
+
+.EditVacation .EditWrapper .Back:active {
+    background-color: #c1cb8b;
+}
+
+.EditVacation .EditWrapper .input-container .Error {
+    color: #e74c3c;
+    font-size: 16px;
+    animation: shake 0.5s infinite ease-in-out ;
+    position: absolute;
+    bottom: 55px;
+    left: 100px;
+}
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
+  }
+
+  .EditVacation .EditWrapper .ImageContainer {
+    display: flex;
+    color: white;
+    font-size: 20px;
+    padding: 5px 0px 5px 0px;
+  }
+
+  .EditVacation .EditWrapper .ImageContainer img {
+	height: 120px;
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+
+
+
+
+
+
+
+
+
+  

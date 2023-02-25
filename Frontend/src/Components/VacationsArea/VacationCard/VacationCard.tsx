@@ -1,11 +1,13 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import EditIcon from '@mui/icons-material/Edit';
 import UserModel from "../../../Models/UserModel";
 import VacationModel from "../../../Models/VacationModel";
 import { authStore } from "../../../Redux/AuthState";
 import adminVacationService from "../../../Services/AdminVacationsService";
 import userVacationsService from "../../../Services/UserVacationsService";
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+
 import notify from "../../../Utils/Notify";
 import "./VacationCard.css";
 
@@ -26,21 +28,29 @@ function VacationCard(props: VacationCardProps): JSX.Element {
 
     }, [])
 
-    // Handle checkbox onChange 
-    function handleFollowing(event: ChangeEvent<HTMLInputElement>) {
+    // // Handle checkbox onChange 
+    // function handleFollowing(event: ChangeEvent<HTMLInputElement>) {
 
-        // if checkbox checked
-        if (event.target.checked) {
+    //     // if checkbox checked
+    //     if (event.target.checked) {
 
-            // follow vacation
-            userVacationsService.followVacation(props.vacation.vacationId)
-        }
-        else {
+    //         // follow vacation
+    //         userVacationsService.followVacation(props.vacation.vacationId)
+    //     }
+    //     else {
+    //         // unfollow vacation
+    //         userVacationsService.unfollowVacation(props.vacation.vacationId)
+    //     }
+    // }
 
+    function handleFollowing() {
+        if (props.vacation.isFollowing) {
             // unfollow vacation
-            userVacationsService.unfollowVacation(props.vacation.vacationId)
+            userVacationsService.unfollowVacation(props.vacation.vacationId);
+        } else {
+            // follow vacation
+            userVacationsService.followVacation(props.vacation.vacationId);
         }
-
     }
 
     // default checkbox to false
@@ -49,7 +59,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
     // if .isFollowing true
     if (props.vacation.isFollowing) {
 
-        // Set checkbox value to true
+        //     Set checkbox value to true
         isFollowed = true
     }
 
@@ -80,63 +90,105 @@ function VacationCard(props: VacationCardProps): JSX.Element {
             notify.error(err);
         }
     }
+
+    ////////////
+    let isFollowedText = "Follow";
+
+    if (props.vacation.isFollowing) {
+        isFollowedText = "Unfollow";
+    }
+
     return (
         <div className="VacationCard">
 
+            {/* Admin vacation card */}
             {user?.role === "Admin" ? (
-                <>
-                    {/* Admin vacation card */}
+                <div className="AdminCard">
                     <div className="DestinationContainer">
                         {props.vacation.destination}
                     </div>
-                        <img alt="vacation" src={props.vacation.imageName} />
+                    <img alt="vacation" src={props.vacation.imageName} />
+                    <div className="PriceContainer">
+                        {props.vacation.price}$
+                    </div>
+                    <div className="LinksContainer">
+                        {/* update vacation link */}
+                        <NavLink to={"/vacations/edit/" + props.vacation.vacationId}>
+                        <EditOutlinedIcon fontSize="large" />
+                        </NavLink>
+                        &nbsp;&nbsp;
+                        {/* Delete vacation link */}
+                        <NavLink to="#" onClick={deleteVacation}>
+                        <DeleteOutlineOutlinedIcon fontSize="large" /></NavLink>
+                    </div>
+                    <div className="DescriptionContainer">
+                        {isCollapsed ? (
+                            <>
+                                {props.vacation.description.slice(0, 85)}...
+                                <span onClick={handleCollapse} className="ReadMore">
+                                    Read More
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                {props.vacation.description}
+                                <span onClick={handleCollapse} className="ReadMore">
+                                    &nbsp;&nbsp;
+                                    Read Less
+                                </span>
+                            </>
+                        )}
+                    </div >
+                    <div className="DateContainer">
+                        {VacationModel.formatTime(props.vacation.startDate)}&nbsp;-&nbsp;
+                        {VacationModel.formatTime(props.vacation.endDate)}
+                    </div >
 
-                    <br />
-                    <button onClick={handleCollapse}>
-                        {isCollapsed ? "Read More" : "Read Less"}
-                    </button>
-                    <br />
-                    {!isCollapsed && <p>{props.vacation.description}</p>}
-                    <br />
-                    {VacationModel.formatTime(props.vacation.startDate)}-{VacationModel.formatTime(props.vacation.endDate)}
-                    <br />
-                    {props.vacation.price}$
-                    <br />
-
-                    <br />
-
-                    {/* update vacation link */}
-                    <NavLink to={"/vacations/edit/" + props.vacation.vacationId}>Edit </NavLink>
-                    &nbsp; | &nbsp;
-
-                    {/* Delete vacation link */}
-                    <NavLink to="#" onClick={deleteVacation}>Delete</NavLink>
-
-                </>
+                </div>
             ) : (
-                <>
-                    {/* User vacation card  */}
-                    {props.vacation.destination}
-                    <br />
-                    <button onClick={handleCollapse}>
-                        {isCollapsed ? "Read More" : "Read Less"}
-                    </button>
-                    <br />
-                    {!isCollapsed && <p>{props.vacation.description}</p>}
-                    <br />
-                    {VacationModel.formatTime(props.vacation.startDate)}-{VacationModel.formatTime(props.vacation.endDate)}
-                    <br />
-                    {props.vacation.price}$
-                    <br />
-                    <input type="checkbox" onChange={handleFollowing} defaultChecked={isFollowed} />
-                    <br />
-                    {props.vacation.followersCount} Followers
-                    <br />
-                    <div>
-                        <img alt="vacation" src={props.vacation.imageName} />
+                <div className="UserCard">
+                    <div className="DestinationContainer">
+                        {props.vacation.destination}
+                    </div>
+                    <img alt="vacation" src={props.vacation.imageName} />
+                    <div className="PriceContainer">
+                        {props.vacation.price}$
+                    </div>
+                    <div className="DescriptionContainer">
+                        {isCollapsed ? (
+                            <>
+                                {props.vacation.description.slice(0, 85)}...
+                                <span onClick={handleCollapse} className="ReadMore">
+                                    Read More
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                {props.vacation.description}
+                                <span onClick={handleCollapse} className="ReadMore">
+                                    &nbsp;&nbsp;
+                                    Read Less
+                                </span>
+                            </>
+                        )}
+                    </div >
+                    <div className="DateContainer">
+                        {VacationModel.formatTime(props.vacation.startDate)}&nbsp;-&nbsp;
+                        {VacationModel.formatTime(props.vacation.endDate)}
+                    </div >
+
+                    {/* <div className="FollowersContainer">
+                        <input type="checkbox" onChange={handleFollowing} defaultChecked={isFollowed} />
+                        {props.vacation.followersCount} Followers
+                    </div> */}
+                    <div className="FollowersContainer">
+                    <div className={`${props.vacation.isFollowing ? 'is-following' : 'not-following'}`}>
+                        <button onClick={handleFollowing}>{isFollowedText}</button>
+                        {props.vacation.followersCount}
+                    </div>
                     </div>
 
-                </>
+                </div>
             )}
 
         </div>

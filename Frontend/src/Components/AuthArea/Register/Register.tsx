@@ -28,38 +28,7 @@ function Register(): JSX.Element {
     }
 
     return (
-        // <div className="Register Box">
 
-        //     <h2>Register</h2>
-
-        //     <form onSubmit={handleSubmit(send)} ref={formRef}>
-
-        //         <label>First name:</label>
-        //         <input type="text" {...register("firstName", UserModel.firstNameValidation)} />
-        //         <span className="Err">{formState.errors.firstName?.message}</span>
-
-        //         <label>Last name:</label>
-        //         <input type="text" {...register("lastName", UserModel.lastNameValidation)} />
-        //         <span className="Err">{formState.errors.lastName?.message}</span>
-
-        //         <label>Email:</label>
-        //         <input type="email" {...register("email", UserModel.emailValidation)} />
-        //         <span className="Err">{formState.errors.email?.message}</span>
-
-        //         <label>Password:</label>
-        //         <input type="password" {...register("password", UserModel.passwordValidation)} />
-        //         <span className="Err">{formState.errors.password?.message}</span>
-
-        //         <button>Register</button>
-        //         <button type="button" onClick={handleClear}>Clear</button>
-
-        //         <span>
-        //             Already a member? <NavLink to="/login">login</NavLink>
-        //         </span>
-
-        //     </form>
-
-        // </div>
         <div className="Register">
 
             {/* <h2 className="RegisterHeader">Register</h2> */}

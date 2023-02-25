@@ -1,6 +1,6 @@
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import VacationModel from "../../../Models/VacationModel";
 import adminVacationService from "../../../Services/AdminVacationsService";
 import notify from "../../../Utils/Notify";
@@ -11,7 +11,6 @@ function AddVacation(): JSX.Element {
     const { register, handleSubmit, formState } = useForm<VacationModel>();
     const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
-    const formRef = useRef(null);
 
     // OnSubmit adds new vacation 
     async function send(vacation: VacationModel) {
@@ -31,7 +30,6 @@ function AddVacation(): JSX.Element {
         catch (err: any) {
             notify.error(err);
         }
-
     }
 
     // sets endDate input to minimum of startDate onChange
@@ -39,52 +37,68 @@ function AddVacation(): JSX.Element {
         setStartDate(args.target.valueAsDate);
     };
 
-    // Clears form on click
-    const handleClear = () => {
-        formRef.current.reset();
-    };
+    // navigate to vacation when user clicks back
+    const handleBack = () => {
+        navigate("/vacations");
+    }
 
     return (
 
-        <div className="AddVacation Box">
+            <div className="AddVacation">
 
-            <h2>Add Vacation</h2>
+                <div className="Title">Add<br /> vacation</div>
+                
+                <div className="AddWrapper">
 
-            <form onSubmit={handleSubmit(send)} ref={formRef}>
+                    <form onSubmit={handleSubmit(send)}>
 
-                {/* <label>Destination: </label> */}
-                <input type="text" placeholder="Destination.." {...register("destination", VacationModel.destinationValidation)} />
-                <span className="Err">{formState.errors.destination?.message}</span>
+                        <div className="input-container ic2">
+                            <input id="destination" className="input" type="text" placeholder=" " {...register("destination", VacationModel.destinationValidation)} />
+                            <div className="cut cut-short"></div>
+                            <label htmlFor="destination" className="placeholder">Destination</label>
+                            <span className="Error">{formState.errors.destination?.message}</span>
+                        </div>
 
-                {/* <label>Description: </label> */}
-                <input type="text" placeholder="Description.." {...register("description", VacationModel.descriptionValidation)} />
-                <span className="Err">{formState.errors.description?.message}</span>
+                        <div className="input-container ic2">
+                            <input id="description" className="input" type="text" placeholder=" " {...register("description", VacationModel.descriptionValidation)} />
+                            <div className="cut cut-short"></div>
+                            <label htmlFor="description" className="placeholder">Description</label>
+                            <span className="Error">{formState.errors.description?.message}</span>
+                        </div>
+                        <div className="input-container ic2">
+                            <input id="price" className="input" type="number" placeholder=" " {...register("price", VacationModel.priceValidation)} />
+                            <div className="cut cut-short"></div>
+                            <label htmlFor="price" className="placeholder">Price</label>
+                            <span className="Error">{formState.errors.price?.message}</span>
+                        </div>
 
-                {/* <label>Start Date: </label> */}
-                <input type="date" placeholder="Start date.." {...register("startDate", VacationModel.startDateValidation)} onChange={handleStartDateChange} min={new Date().toISOString().substring(0, 10)} />
-                <span className="Err">{formState.errors.startDate?.message}</span>
+                        <div className="input-container ic2">
+                            <input id="startDate" className="input" type="date" placeholder=" "  min={new Date().toISOString().substring(0, 10)} {...register("startDate", VacationModel.startDateValidation)} onChange={handleStartDateChange}  />
+                            <div className="cut cut-short"></div>
+                            <label htmlFor="startDate" className="placeholder">Start Date</label>
+                            <span className="Error">{formState.errors.startDate?.message}</span>
+                        </div>
 
-                {/* <label>End Date: </label> */}
-                <input type="date" placeholder="End date.." {...register("endDate", VacationModel.endDateValidation)} min={startDate.toISOString().substring(0, 10)} />
-                <span className="Err">{formState.errors.endDate?.message}</span>
+                        <div className="input-container ic2">
+                            <input id="endDate" className="input" type="date" placeholder=" " {...register("endDate", VacationModel.endDateValidation)} min={startDate.toISOString().substring(0, 10)} />
+                            <div className="cut cut-short"></div>
+                            <label htmlFor="endDate" className="placeholder">End Date</label>
+                            <span className="Error">{formState.errors.endDate?.message}</span>
+                        </div>
 
-                {/* <label>Price: </label> */}
-                <input type="number" step="0.01" placeholder="Price.." {...register("price", VacationModel.priceValidation)} />
-                <span className="Err">{formState.errors.price?.message}</span>
+                        <div className="ImageContainer">
+                            <label>Image: </label>
+                            <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)} />
+                            <span className="Error">{formState.errors.image?.message}</span>
+                        </div>
 
-                <label>Image: </label>
-                <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)} />
-                <span className="Err">{formState.errors.image?.message}</span>
+                        <button className="submit">Add</button>
+                        <button className="Back" onClick={handleBack}>Back</button>
 
-                <button>Add</button>
-
-                <button type="button" onClick={handleClear}>Clear</button>
-
-                <button><NavLink to="/vacations">Back</NavLink></button>
-
-            </form>
-        </div>
-    );
+                    </form>
+                </div>
+            </div>
+        );
 }
 
 export default AddVacation;

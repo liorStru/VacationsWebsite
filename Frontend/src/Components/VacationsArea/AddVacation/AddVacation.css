@@ -1,3 +1,223 @@
 .AddVacation {
-	
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.AddVacation .AddWrapper {
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 480px;
+    padding: 15px 20px 20px 20px;
+    margin-top: 45px;
+    width: 380px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    box-shadow: 5px 5px 10px white;
+}
+
+.AddVacation  .Title {
+    color: #c1cb8b;
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    margin: 0px;
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    color: #F6D2A2;
+    animation: cool-header 2s ease-in-out infinite;
+    text-shadow: 1px 1px 1px #957dad,
+             1px 2px 1px #957dad,
+             1px 3px 1px #957dad,
+             1px 4px 1px #957dad,
+             1px 5px 1px #957dad,
+             1px 6px 1px #957dad,
+             1px 10px 5px rgba(16, 16, 16, 0.5),
+             1px 15px 10px rgba(16, 16, 16, 0.4),
+             1px 20px 30px rgba(16, 16, 16, 0.3),
+             1px 25px 50px rgba(16, 16, 16, 0.2);
+}
+
+@keyframes cool-header {
+    0% {
+        transform: translateY(0);
+        color: #a1aaf0;
+    }
+
+    50% {
+        transform: translateY(-15px);
+        color: #c8efc3;
+    }
+
+    100% {
+        transform: translateY(0);
+        color: #EFC3E6;
+    }
+}
+.AddVacation .AddWrapper .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.AddVacation .AddWrapper .ic2 {
+    margin-top: 20px;
+}
+
+.AddVacation .AddWrapper .input-container .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 90%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+.AddVacation .AddWrapper .input-container .cut {
+
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+}
+
+.AddVacation .AddWrapper .input-container .cut-short {
+    width: 100px;
+}
+
+.AddVacation .AddWrapper .input-container .input:focus~.cut,
+.input:not(:placeholder-shown)~.cut {
+    transform: translateY(8px);
+}
+
+.AddVacation .AddWrapper .input-container .placeholder {
+    color: #9595b5;
+    font-family: sans-serif;
+    left: 15px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 15px;
+}
+
+.AddVacation .AddWrapper .input-container .input:focus~.placeholder,
+.input:not(:placeholder-shown)~.placeholder {
+    transform: translateY(-32px) translateX(-5px) scale(0.75);
+}
+
+.AddVacation .AddWrapper .input-container .input:not(:placeholder-shown)~.placeholder {
+    color: #808097;
+}
+
+.AddVacation .AddWrapper .input-container .input:focus~.placeholder {
+    color: #c1cb8b;
+}
+
+.AddVacation .AddWrapper .submit {
+    background-color: #c1cb8b;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    margin: 5px;
+    padding-left: 10px;
+    outline: 0;
+    text-align: center;
+    width: 33%;
+}
+
+.AddVacation .AddWrapper .submit:hover {
+    opacity: 0.8;
+}
+
+.AddVacation .AddWrapper .submit:active {
+    background-color: #c1cb8b;
+}
+
+.AddVacation .AddWrapper .Back {
+    background-color: #c1cb8b;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    margin: 5px;
+    padding-left: 10px;
+    outline: 0;
+    text-align: center;
+    width: 33%;
+}
+
+.AddVacation .AddWrapper .Back a {
+    text-decoration: none;
+    color: white;
+}
+
+.AddVacation .AddWrapper .Back:hover {
+    opacity: 0.8;
+}
+
+.AddVacation .AddWrapper .Back:active {
+    background-color: #c1cb8b;
+}
+
+.AddVacation .AddWrapper .input-container .Error {
+    color: #e74c3c;
+    font-size: 16px;
+    animation: shake 0.5s infinite ease-in-out ;
+    position: absolute;
+    bottom: 55px;
+    left: 100px;
+}
+  
+.AddVacation .AddWrapper .ImageContainer .Error {
+    color: #e74c3c;
+    font-size: 16px;
+    animation: shake 0.5s infinite ease-in-out ;
+    position: absolute;
+    bottom: 100px;
+    left: 120px;
+}
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
+  }
+
+  .AddVacation .AddWrapper .ImageContainer {
+    color: white;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 12px;
+  }
+
+
+
+
+
+
+
+  

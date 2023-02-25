@@ -4,9 +4,28 @@
     background-attachment: fixed;
 }
 
+.VacationsList .CardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.VacationsList .CheckboxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0px 10px 0px;
+    color:  #c1cb8b;
+    font-size: x-large;
+    text-shadow: 1px 1px 1px black;
+
+}
+
 .VacationsList h2 {
     margin: 0px;
-    /* margin-top: 20px; */
     color: #fff;
     font-size: 4rem;
     text-align: center;
@@ -100,3 +119,4 @@
 .VacationsList .pagination .disabled {
     display: none;
 }
+

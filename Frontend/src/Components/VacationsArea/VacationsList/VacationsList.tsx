@@ -100,7 +100,7 @@ function VacationsList(): JSX.Element {
 
             {/* Show filters for user */}
             {user?.role === "User" &&
-                <div>
+                <div className="CheckboxContainer">
                     <label>
                         <input type="checkbox" checked={isFollowingFilter} onChange={() => setIsFollowingFilter(!isFollowingFilter)} />
                         Liked vacations
@@ -117,7 +117,7 @@ function VacationsList(): JSX.Element {
             }
 
             {/* Display Vacations */}
-            <div>
+            <div className="CardContainer">
                 {paginatedVacations.map(v => (<VacationCard key={v.vacationId} vacation={v} />))}
             </div>
 

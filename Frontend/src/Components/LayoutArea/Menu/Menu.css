@@ -1,16 +1,18 @@
 .Menu {
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translate(-50%);
+    left: 0;
+    /* left: 50%; */
+    /* transform: translate(-50%); */
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.6);
     color: wheat;
     backdrop-filter: blur(6px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    border-radius: 0px 0px 15px 15px;
-    min-width: 300px;
+    padding: 5px 10px;
+    /* border-radius: 0px 0px 15px 15px; */
+    border-radius: 0px 0px 15px 0px;
+    min-width: 250px;
     font-size: 18px;
 }
 
