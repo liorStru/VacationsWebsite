@@ -30,12 +30,10 @@
 
 .Home>div:first-child {
     order: 2;
-
 }
 
 .Home>div:last-child {
     order: 1;
-
 }
 
 .Home .HomeLayout h4 {
@@ -45,7 +43,6 @@
 
 .Home .HomeLayout .TextWrapper a {
     color: #c1cb8b;
-    /* text-decoration: none; */
 }
 
 .Home .HomeLayout .TextWrapper a:hover {

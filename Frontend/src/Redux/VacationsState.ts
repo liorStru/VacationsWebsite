@@ -13,7 +13,6 @@ export enum VacationsActionType {
     UpdateVacation = "UpdateVacation",
     DeleteVacation = "DeleteVacation",
     ResetVacations = "ResetVacations"
-
 }
 
 // 3. Action - a single object describing single operation on the data:
@@ -75,7 +74,6 @@ export function vacationsReducer(currentState = new VacationsState(), action: Va
             }
 
             break;
-
     }
 
     return newState;

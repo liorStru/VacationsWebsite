@@ -2,47 +2,7 @@ html, body, #root {
     margin: 0;
     height: 100%;
     text-align: center;
-    /* font-size: x-large; */
-    background-image: linear-gradient(rgb(99, 122, 88), rgb(150, 211, 237));
+    background-image: linear-gradient(rgb(192, 216, 180), rgb(151, 122, 121), rgb(120, 151, 164));
     box-sizing: border-box;
 }
 
-/* a {
-    color: blue;
-}
-
-form {
-    width: 500px;
-    text-align: left;
-    position: relative;
-}
-
-form > input, form > button {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    font-size: x-large;
-}
-
-form > label {
-    font-size: x-large;
-} */
-
-.Box {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px;
-}
-
-/* error messages */
-/* .Err {
-    color: red;
-    font-size: x-large;
-    margin: 0 5px;
-    width: 250px;
-    position: relative;
-    top: 50;
-} */

@@ -133,9 +133,9 @@ function VacationsList(): JSX.Element {
                     previousLabel="⬅️"
                     activeClassName="active"
                     containerClassName="pagination"
-
                 />
             )}
+
         </div>
     );
 }

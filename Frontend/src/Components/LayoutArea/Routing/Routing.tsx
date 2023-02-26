@@ -25,9 +25,6 @@ function Routing(): JSX.Element {
             {/* Vacations list */}
             <Route path="/vacations" element={<VacationsList />} />
 
-            {/* Vacation Details */}
-            {/* <Route path="/vacations/details/:vacationId" element={<VacationDetails />} /> */}
-
             {/* Add vacation */}
             <Route path="/vacations/new" element={<AddVacation />} />
 
@@ -39,7 +36,6 @@ function Routing(): JSX.Element {
 
             {/* vacations report */}
             <Route path="/vacations/reports/" element={<VacationsReport />} />
-
 
             {/* Page nit found */}
             <Route path="/*" element={<PageNotFound />} />

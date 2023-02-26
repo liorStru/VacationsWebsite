@@ -1,7 +1,7 @@
 .VacationsList {
-    padding-top: 45px;
     background-image: url('../../../Assets/Images/vacations-background.jpg');
     background-attachment: fixed;
+    min-height: 100%;
 }
 
 .VacationsList .CardContainer {
@@ -21,7 +21,6 @@
     color:  #c1cb8b;
     font-size: x-large;
     text-shadow: 1px 1px 1px black;
-
 }
 
 .VacationsList h2 {
@@ -42,7 +41,6 @@
              1px 15px 10px rgba(16, 16, 16, 0.4),
              1px 20px 30px rgba(16, 16, 16, 0.3),
              1px 25px 50px rgba(16, 16, 16, 0.2);
-
 }
 
 @keyframes cool-header {
@@ -63,7 +61,6 @@
 }
 
 .VacationsList .pagination {
-    /* width: 100%; */
     display: flex;
     justify-content: center;
     list-style: none;
@@ -81,23 +78,22 @@
     text-align: center;
     font-size: 14px;
     font-weight: bold;
-    color: #5f6368;
+    color: white;
     width: 32px;
     height: 32px;
     line-height: 32px;
     border-radius: 50%;
-    background-color: #d69c9c;
-    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 1px 2px 0 rgba(60, 64, 67, 0.149);
-    transition: box-shadow 0.2s ease-in-out;
+    background-color: rgba(0.6, 1, 0.6, 0.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid #c1cb8b;
 }
 
 .VacationsList .pagination li a:hover {
-    background-color: #f2f2f2;
+    background-color:  #c1cb8b;
 }
 
 .VacationsList .pagination li.active a {
-    background-color: #000;
-    color: #fff;
+    background-color:  #c1cb8b;
     cursor: default;
 }
 

@@ -11,13 +11,13 @@
     height: 480px;
     padding: 15px 20px 20px 20px;
     margin-top: 45px;
-    width: 380px;
+    width: 410px;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(6px);
     box-shadow: 5px 5px 10px white;
 }
 
-.AddVacation  .Title {
+.AddVacation .Title {
     color: #c1cb8b;
     font-family: sans-serif;
     font-size: 32px;
@@ -32,15 +32,15 @@
     color: #F6D2A2;
     animation: cool-header 2s ease-in-out infinite;
     text-shadow: 1px 1px 1px #957dad,
-             1px 2px 1px #957dad,
-             1px 3px 1px #957dad,
-             1px 4px 1px #957dad,
-             1px 5px 1px #957dad,
-             1px 6px 1px #957dad,
-             1px 10px 5px rgba(16, 16, 16, 0.5),
-             1px 15px 10px rgba(16, 16, 16, 0.4),
-             1px 20px 30px rgba(16, 16, 16, 0.3),
-             1px 25px 50px rgba(16, 16, 16, 0.2);
+        1px 2px 1px #957dad,
+        1px 3px 1px #957dad,
+        1px 4px 1px #957dad,
+        1px 5px 1px #957dad,
+        1px 6px 1px #957dad,
+        1px 10px 5px rgba(16, 16, 16, 0.5),
+        1px 15px 10px rgba(16, 16, 16, 0.4),
+        1px 20px 30px rgba(16, 16, 16, 0.3),
+        1px 25px 50px rgba(16, 16, 16, 0.2);
 }
 
 @keyframes cool-header {
@@ -59,6 +59,7 @@
         color: #EFC3E6;
     }
 }
+
 .AddVacation .AddWrapper .input-container {
     height: 50px;
     position: relative;
@@ -128,6 +129,35 @@
     color: #c1cb8b;
 }
 
+.AddVacation .AddWrapper .input-container .placeholderEnd {
+    color: #9595b5;
+    font-family: sans-serif;
+    left: 15px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 15px;
+}
+
+.AddVacation .AddWrapper .input-container .input:focus~.placeholderEnd,
+.input:not(:placeholder-shown)~.placeholderEnd {
+    transform: translateY(-32px) translateX(170px) scale(0.75);
+}
+
+.AddVacation .AddWrapper .input-container .input:not(:placeholder-shown)~.placeholderEnd {
+    color: #808097;
+}
+
+.AddVacation .AddWrapper .input-container .input:focus~.placeholderEnd {
+    color: #c1cb8b;
+}
+
+.AddVacation .AddWrapper .DateContainer .input-container input {
+    width: 50%;
+}
+
 .AddVacation .AddWrapper .submit {
     background-color: #c1cb8b;
     border-radius: 12px;
@@ -138,7 +168,6 @@
     font-size: 18px;
     height: 40px;
     margin: 5px;
-    padding-left: 10px;
     outline: 0;
     text-align: center;
     width: 33%;
@@ -162,7 +191,6 @@
     font-size: 18px;
     height: 40px;
     margin: 5px;
-    padding-left: 10px;
     outline: 0;
     text-align: center;
     width: 33%;
@@ -184,40 +212,94 @@
 .AddVacation .AddWrapper .input-container .Error {
     color: #e74c3c;
     font-size: 16px;
-    animation: shake 0.5s infinite ease-in-out ;
+    animation: shake 0.5s infinite ease-in-out;
     position: absolute;
     bottom: 55px;
     left: 100px;
 }
-  
-.AddVacation .AddWrapper .ImageContainer .Error {
+
+.AddVacation .AddWrapper .ImageContainer .ImageError {
     color: #e74c3c;
     font-size: 16px;
-    animation: shake 0.5s infinite ease-in-out ;
+    animation: shake 0.5s infinite ease-in-out;
     position: absolute;
-    bottom: 100px;
-    left: 120px;
+    bottom: 160px;
+    left: 155px;
 }
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(-2px); }
-    40% { transform: translateX(2px); }
-    60% { transform: translateX(-2px); }
-    80% { transform: translateX(2px); }
-    100% { transform: translateX(0); }
-  }
 
-  .AddVacation .AddWrapper .ImageContainer {
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-2px);
+    }
+
+    40% {
+        transform: translateX(2px);
+    }
+
+    60% {
+        transform: translateX(-2px);
+    }
+
+    80% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.AddVacation .AddWrapper .ImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     font-size: 20px;
-    margin-top: 5px;
-    padding: 12px;
-  }
+    padding: 5px 0px 5px 0px;
+    height: 120px;
+    width: 100%;
+}
 
+.AddVacation .AddWrapper .ImageContainer img {
+    height: 120px;
+    width: 180px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
 
+.AddVacation .AddWrapper .ImageContainer .ImageInput {
+    height: min-content;
+    margin: auto 0;
+    width: 150px;
+}
 
+.AddVacation .AddWrapper .ImageContainer .ImageInput .css-sghohy-MuiButtonBase-root-MuiButton-root {
+    background-color: #c1cb8b;
+    border-radius: 12px;
+}
 
+.AddVacation .AddWrapper .ImageContainer .ImageInput .css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
+    opacity: 0.8;
+}
 
+.AddVacation .AddWrapper .input-container .StartError {
+    color: #e74c3c;
+    font-size: 16px;
+    animation: shake 0.5s infinite ease-in-out;
+    position: absolute;
+    bottom: 50px;
+    left: 65px;
+}
 
-
-  
+.AddVacation .AddWrapper .input-container .EndError {
+    color: #e74c3c;
+    font-size: 16px;
+    animation: shake 0.5s infinite ease-in-out;
+    position: absolute;
+    bottom: 50px;
+    left: 245px;
+}

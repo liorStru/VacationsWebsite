@@ -28,7 +28,7 @@ class VacationModel {
 
     public static startDateValidation: RegisterOptions = {
         required: { value: true, message: "Missing start date" },
-        valueAsDate: true
+        valueAsDate: true    
     };
 
     public static endDateValidation: RegisterOptions = {

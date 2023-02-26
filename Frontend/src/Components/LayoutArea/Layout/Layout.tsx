@@ -23,15 +23,13 @@ function Layout(): JSX.Element {
         });
 
     }, []);
+
     return (
         <div className="Layout">
 
             <nav>
                 {/* If admin show menu */}
-                {user?.role === "Admin" &&
-
-                    <Menu />
-                }
+                {user?.role === "Admin" && <Menu />}
             </nav>
 
             <main className="Main">

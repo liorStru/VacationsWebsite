@@ -3,6 +3,7 @@ import { Chart, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend }
 import { Bar } from 'react-chartjs-2';
 import { CSVLink } from 'react-csv'
 import adminVacationService from '../../../Services/AdminVacationsService';
+import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import notify from '../../../Utils/Notify';
 import "./vacationsReport.css";
 
@@ -43,7 +44,7 @@ function VacationsReport(): JSX.Element {
 
             {/* Link for csv download */}
             <CSVLink data={csvData} filename={'vacation_data.csv'}>
-                <button className='Csv'> 📩 CSV</button>
+                <button className='Csv'><SystemUpdateAltIcon fontSize='medium'/>CSV</button>
             </CSVLink>
 
             {/* Props needed for report */}

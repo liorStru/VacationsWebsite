@@ -4,7 +4,6 @@ import authService from "../Services/AuthService";
 
 class Interceptors {
 
-
     public create():void {
 
         // Add request interceptor:

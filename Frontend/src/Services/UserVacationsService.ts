@@ -30,8 +30,8 @@ class UserVacationsService {
 
         // Follow vacation and update redux 
         return axios.post(appConfig.followVacationUrl + vacationId)
-        .then(this.updateRedux)
-        
+            .then(this.updateRedux)
+
     }
 
     // Unfollow vacation
@@ -39,7 +39,7 @@ class UserVacationsService {
 
         // unfollow vacation and update redux 
         return axios.delete(appConfig.unfollowVacationUrl + vacationId)
-        .then(this.updateRedux)
+            .then(this.updateRedux)
     }
 
     // Func for updating redux with follow/unfollow on vacations
@@ -51,7 +51,6 @@ class UserVacationsService {
         const vacations = response.data;
 
         // Update redux
-        // UserVacationStore.dispatch({ type: VacationsActionType.FetchVacations, payload: vacations });
         VacationsStore.dispatch({ type: VacationsActionType.FetchVacations, payload: vacations });
 
     }

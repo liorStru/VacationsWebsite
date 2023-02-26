@@ -11,6 +11,7 @@ function Login(): JSX.Element {
     const { register, handleSubmit, formState } = useForm<CredentialsModel>();
     const navigate = useNavigate();
 
+    // Activated onSubmit
     async function send(credentials: CredentialsModel) {
         try {
             await authService.Login(credentials);

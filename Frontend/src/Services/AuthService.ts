@@ -46,9 +46,7 @@ class AuthService {
 
     // Is user logged in:
     public isLoggedIn(): boolean {
-
         return authStore.getState().token !== null;
-        
     }
 
 }

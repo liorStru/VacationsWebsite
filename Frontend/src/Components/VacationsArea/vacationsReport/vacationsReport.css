@@ -1,14 +1,26 @@
 .vacationsReport {
-
     width: 100%;
+    padding-top: 50px;
     max-height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .vacationsReport .Csv {
     position: absolute;
-    top: 35px;
+    top: 20px;
+    right: 300px;
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(89, 131, 131);
+    border-radius: 10px;
 }
+
+.vacationsReport .Csv:hover {
+    scale: 1.1;
+    background-color: rgb(48, 180, 180);
+}
+

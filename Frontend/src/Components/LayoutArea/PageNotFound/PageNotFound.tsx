@@ -1,12 +1,11 @@
 import "./PageNotFound.css";
-import imageSource from "../../../Assets/Images/page-not-found.jpg"
 
 function PageNotFound(): JSX.Element {
     return (
         <div className="PageNotFound">
-
-			<img alt="pageNotFound" src={imageSource} />
-            
+            <h2>
+                Sorry the page you are looking for can't be found!
+            </h2>
         </div>
     );
 }

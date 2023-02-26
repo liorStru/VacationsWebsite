@@ -30,8 +30,6 @@ function Register(): JSX.Element {
     return (
 
         <div className="Register">
-
-            {/* <h2 className="RegisterHeader">Register</h2> */}
             <div className="RegisterWrapper">
                 <div className="Title">Register</div>
 

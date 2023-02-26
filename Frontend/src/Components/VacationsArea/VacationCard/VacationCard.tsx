@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import VacationModel from "../../../Models/VacationModel";
@@ -7,7 +7,8 @@ import adminVacationService from "../../../Services/AdminVacationsService";
 import userVacationsService from "../../../Services/UserVacationsService";
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import notify from "../../../Utils/Notify";
 import "./VacationCard.css";
 
@@ -28,21 +29,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
 
     }, [])
 
-    // // Handle checkbox onChange 
-    // function handleFollowing(event: ChangeEvent<HTMLInputElement>) {
-
-    //     // if checkbox checked
-    //     if (event.target.checked) {
-
-    //         // follow vacation
-    //         userVacationsService.followVacation(props.vacation.vacationId)
-    //     }
-    //     else {
-    //         // unfollow vacation
-    //         userVacationsService.unfollowVacation(props.vacation.vacationId)
-    //     }
-    // }
-
+    // onClick follow/unfollow func
     function handleFollowing() {
         if (props.vacation.isFollowing) {
             // unfollow vacation
@@ -51,16 +38,6 @@ function VacationCard(props: VacationCardProps): JSX.Element {
             // follow vacation
             userVacationsService.followVacation(props.vacation.vacationId);
         }
-    }
-
-    // default checkbox to false
-    let isFollowed = false;
-
-    // if .isFollowing true
-    if (props.vacation.isFollowing) {
-
-        //     Set checkbox value to true
-        isFollowed = true
     }
 
     // Handle description collapse btn
@@ -91,11 +68,13 @@ function VacationCard(props: VacationCardProps): JSX.Element {
         }
     }
 
-    ////////////
-    let isFollowedText = "Follow";
+    // sets all icons to empty hart  
+    let isFollowedIcon = <FavoriteBorderIcon color="error" />;
 
     if (props.vacation.isFollowing) {
-        isFollowedText = "Unfollow";
+
+        // if user following show full hart
+        isFollowedIcon = <FavoriteIcon color="error" />;
     }
 
     return (
@@ -114,12 +93,13 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                     <div className="LinksContainer">
                         {/* update vacation link */}
                         <NavLink to={"/vacations/edit/" + props.vacation.vacationId}>
-                        <EditOutlinedIcon fontSize="large" />
+                            <EditOutlinedIcon fontSize="large" />
                         </NavLink>
                         &nbsp;&nbsp;
                         {/* Delete vacation link */}
                         <NavLink to="#" onClick={deleteVacation}>
-                        <DeleteOutlineOutlinedIcon fontSize="large" /></NavLink>
+                            <DeleteOutlineOutlinedIcon fontSize="large" />
+                        </NavLink>
                     </div>
                     <div className="DescriptionContainer">
                         {isCollapsed ? (
@@ -143,7 +123,6 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                         {VacationModel.formatTime(props.vacation.startDate)}&nbsp;-&nbsp;
                         {VacationModel.formatTime(props.vacation.endDate)}
                     </div >
-
                 </div>
             ) : (
                 <div className="UserCard">
@@ -177,17 +156,12 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                         {VacationModel.formatTime(props.vacation.endDate)}
                     </div >
 
-                    {/* <div className="FollowersContainer">
-                        <input type="checkbox" onChange={handleFollowing} defaultChecked={isFollowed} />
-                        {props.vacation.followersCount} Followers
-                    </div> */}
                     <div className="FollowersContainer">
-                    <div className={`${props.vacation.isFollowing ? 'is-following' : 'not-following'}`}>
-                        <button onClick={handleFollowing}>{isFollowedText}</button>
-                        {props.vacation.followersCount}
+                        <div className={`${props.vacation.isFollowing ? 'is-following' : 'not-following'}`}>
+                            <button onClick={handleFollowing}>{isFollowedIcon}</button>
+                            {props.vacation.followersCount}
+                        </div>
                     </div>
-                    </div>
-
                 </div>
             )}
 
