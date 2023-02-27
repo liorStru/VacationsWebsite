@@ -16,9 +16,6 @@ function Routing(): JSX.Element {
             {/* Register */}
             <Route path="/register" element={<Register />} />
 
-            {/* Login */}
-            {/* <Route path="/login" element={<Login />} /> */}
-
             {/* Home page */}
             <Route path="/home" element={<Home />} />
 
@@ -31,13 +28,13 @@ function Routing(): JSX.Element {
             {/* Edit Vacation */}
             <Route path="/vacations/edit/:vacationId" element={<EditVacation />} />
 
-            {/* Default Route to home page */}
-            <Route path="/" element={<Navigate to="/home" />} />
-
             {/* vacations report */}
             <Route path="/vacations/reports/" element={<VacationsReport />} />
 
-            {/* Page nit found */}
+            {/* Default Route to home page */}
+            <Route path="/" element={<Navigate to="/home" />} />
+
+            {/* Page not found */}
             <Route path="/*" element={<PageNotFound />} />
 
         </Routes>

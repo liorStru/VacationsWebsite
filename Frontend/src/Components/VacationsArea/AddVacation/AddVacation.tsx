@@ -1,17 +1,35 @@
 import { Button } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import VacationModel from "../../../Models/VacationModel";
+import { authStore } from "../../../Redux/AuthState";
 import adminVacationService from "../../../Services/AdminVacationsService";
+import authService from "../../../Services/AuthService";
 import notify from "../../../Utils/Notify";
 import "./AddVacation.css";
 
 function AddVacation(): JSX.Element {
+    
     const [imagePreview, setImagePreview] = useState(null);
     const { register, handleSubmit, formState } = useForm<VacationModel>();
     const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
+
+    // Re-route to home if not registered or admin
+    useEffect(() => {
+
+        // Get user from store
+        const user = authStore.getState().user;
+
+        // if .role not admin or not logged-in
+        if (user?.role !== 'Admin' || !authService.isLoggedIn()) {
+
+            // navigate to login
+            navigate("/home");
+
+        }
+    }, [navigate]);
 
     // OnSubmit adds new vacation
     async function send(vacation: VacationModel) {

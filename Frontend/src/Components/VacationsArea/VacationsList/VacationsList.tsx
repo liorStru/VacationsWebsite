@@ -14,7 +14,6 @@ import VacationCard from "../VacationCard/VacationCard";
 import "./VacationsList.css";
 
 function VacationsList(): JSX.Element {
-    const navigate = useNavigate();
 
     // States for vacations and user
     const [vacations, setVacations] = useState<VacationModel[]>([]);
@@ -26,6 +25,8 @@ function VacationsList(): JSX.Element {
     const [inDateRangeFilter, setInDateRangeFilter] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
 
+    const navigate = useNavigate();
+
     // Update the current page to 0 when the filters change
     useEffect(() => {
         setCurrentPage(0);
@@ -33,6 +34,7 @@ function VacationsList(): JSX.Element {
 
     //  Get user form store
     useEffect(() => {
+
         setUser(authStore.getState().user);
 
         // If no token
@@ -43,7 +45,6 @@ function VacationsList(): JSX.Element {
         }
     }, [navigate]);
 
-    // 
     useEffect(() => {
 
         // getVacations depending on user

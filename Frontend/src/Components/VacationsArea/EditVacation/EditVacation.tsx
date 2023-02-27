@@ -3,7 +3,9 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import VacationModel from "../../../Models/VacationModel";
+import { authStore } from "../../../Redux/AuthState";
 import adminVacationService from "../../../Services/AdminVacationsService";
+import authService from "../../../Services/AuthService";
 import notify from "../../../Utils/Notify";
 import "./EditVacation.css";
 
@@ -16,6 +18,21 @@ function EditVacation(): JSX.Element {
     const navigate = useNavigate();
     const params = useParams();
     const formRef = useRef(null);
+
+    // Re-route to home if not registered or admin
+    useEffect(() => {
+
+        // Get user from store
+        const user = authStore.getState().user;
+
+        // if .role not admin or not logged-in
+        if (user?.role !== 'Admin' || !authService.isLoggedIn()) {
+
+            // navigate to login
+            navigate("/home");
+
+        }
+    }, [navigate]);
 
     useEffect(() => {
 

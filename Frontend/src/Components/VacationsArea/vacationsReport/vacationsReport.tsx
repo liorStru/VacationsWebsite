@@ -6,12 +6,31 @@ import adminVacationService from '../../../Services/AdminVacationsService';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import notify from '../../../Utils/Notify';
 import "./vacationsReport.css";
+import { authStore } from '../../../Redux/AuthState';
+import authService from '../../../Services/AuthService';
+import { useNavigate } from 'react-router-dom';
 
 function VacationsReport(): JSX.Element {
 
     // states for reports avd csv download
     const [vacationData, setVacationData] = useState<{ destination: string; followerCount: number }[]>([]);
     const [csvData, setCsvData] = useState([]);
+    const navigate = useNavigate();
+
+    // Re-route to home if not registered or admin
+    useEffect(() => {
+
+        // Get user from store
+        const user = authStore.getState().user;
+
+        // if .role not admin or not logged-in
+        if (user?.role !== 'Admin' || !authService.isLoggedIn()) {
+
+            // navigate to login
+            navigate("/home");
+
+        }
+    }, [navigate]);
 
     // props for reports
     Chart.register(
@@ -44,7 +63,7 @@ function VacationsReport(): JSX.Element {
 
             {/* Link for csv download */}
             <CSVLink data={csvData} filename={'vacation_data.csv'}>
-                <button className='Csv'><SystemUpdateAltIcon fontSize='medium'/>CSV</button>
+                <button className='Csv'><SystemUpdateAltIcon fontSize='medium' />CSV</button>
             </CSVLink>
 
             {/* Props needed for report */}
