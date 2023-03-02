@@ -123,47 +123,43 @@ function EditVacation(): JSX.Element {
 
                     <div className="input-container ic2">
                         <input
-                            id="destination"
                             className="input"
                             type="text"
                             placeholder=" "
                             {...register("destination", VacationModel.destinationValidation)}
                         />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="destination" className="placeholder">Destination</label>
+                        <label className="placeholder">Destination</label>
                         <span className="Error">{formState.errors.destination?.message}</span>
                     </div>
 
                     <div className="input-container ic2">
                         <input
-                            id="description"
                             className="input"
                             type="text"
                             placeholder=" "
                             {...register("description", VacationModel.descriptionValidation)}
                         />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="description" className="placeholder">Description</label>
+                        <label className="placeholder">Description</label>
                         <span className="Error">{formState.errors.description?.message}</span>
                     </div>
 
                     <div className="input-container ic2">
                         <input
-                            id="price"
                             className="input"
                             type="number"
                             placeholder=" "
                             {...register("price", VacationModel.priceValidation)}
                         />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="price" className="placeholder">Price</label>
+                        <label className="placeholder">Price</label>
                         <span className="Error">{formState.errors.price?.message}</span>
                     </div>
 
                     <div className="DateContainer">
                         <div className="input-container ic2">
                             <input
-                                id="startDate"
                                 className="input"
                                 type="date"
                                 placeholder=" "
@@ -173,18 +169,17 @@ function EditVacation(): JSX.Element {
                                     startDateRegister.onChange(e);
                                 }} />
                             <div className="cut cut-short"></div>
-                            <label htmlFor="startDate" className="placeholder">Start Date</label>
+                            <label className="placeholder">Start Date</label>
                             <span className="StartError">{formState.errors.startDate?.message}</span>
 
                             <input
-                                id="endDate"
                                 className="input"
                                 type="date"
                                 placeholder=" "
                                 {...register("endDate", VacationModel.endDateValidation)} min={startDate.toISOString().substring(0, 10)}
                             />
                             <div className="cut cut-short"></div>
-                            <label htmlFor="endDate" className="placeholderEnd">End Date</label>
+                            <label className="placeholderEnd">End Date</label>
                             <span className="EndError">{formState.errors.endDate?.message}</span>
                         </div>
                     </div>

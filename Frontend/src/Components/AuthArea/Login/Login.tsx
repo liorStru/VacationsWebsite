@@ -14,7 +14,7 @@ function Login(): JSX.Element {
     // Activated onSubmit
     async function send(credentials: CredentialsModel) {
         try {
-            await authService.Login(credentials);
+            await authService.login(credentials);
             notify.success("Welcome back");
             navigate("/vacations");
         }
@@ -34,17 +34,17 @@ function Login(): JSX.Element {
 
                     <div className="input-container ic2">
                         <div className="Error">{formState.errors.email?.message}</div>
-                        <input id="email" className="input" type="text" placeholder=" "  {...register("email", CredentialsModel.emailValidation)} />
+                        <input className="input" type="text" placeholder=" "  {...register("email", CredentialsModel.emailValidation)} />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="email" className="placeholder">Email</label>
+                        <label className="placeholder">Email</label>
                     </div>
                     <div className="input-container ic2">
                         <div className="Error">{formState.errors.password?.message}</div>
-                        <input id="password" className="input" type="password" placeholder=" " {...register("password", CredentialsModel.passwordValidation)} />
+                        <input className="input" type="password" placeholder=" " {...register("password", CredentialsModel.passwordValidation)} />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="password" className="placeholder">Password</label>
-
+                        <label className="placeholder">Password</label>
                     </div>
+
                     <button className="submit">Login</button>
 
                     <div className="RegisterLink">

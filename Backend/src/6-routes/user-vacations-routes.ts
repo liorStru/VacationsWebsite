@@ -19,7 +19,7 @@ router.get("/users/vacations", verifyLoggedIn, async (request: Request, response
 });
 
 // POST http://localhost:4000/api/users/follow/:vacationId
-router.post("/users/follow/:vacationId", verifyLoggedIn, async (request: Request, response: Response, next: NextFunction) => {
+router.post("/users/follow/:vacationId([0-9]+)", verifyLoggedIn, async (request: Request, response: Response, next: NextFunction) => {
     try {
         const user = cyber.getUserFromToken(request);
         const vacationId = +request.params.vacationId;
@@ -34,7 +34,7 @@ router.post("/users/follow/:vacationId", verifyLoggedIn, async (request: Request
 });
 
 // DELETE http://localhost:4000/api/users/unfollow/:vacationId
-router.delete("/users/unfollow/:vacationId", verifyLoggedIn, async (request: Request, response: Response, next: NextFunction) => {
+router.delete("/users/unfollow/:vacationId([0-9]+)", verifyLoggedIn, async (request: Request, response: Response, next: NextFunction) => {
     try {
         const user = cyber.getUserFromToken(request);
         const vacationId = +request.params.vacationId;

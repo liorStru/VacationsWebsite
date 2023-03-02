@@ -35,28 +35,28 @@ function Register(): JSX.Element {
 
                 <form onSubmit={handleSubmit(send)}>
                     <div className="input-container ic2">
-                        <input id="firstName" className="input" type="text" placeholder=" " {...register("firstName", UserModel.firstNameValidation)} />
+                        <input className="input" type="text" placeholder=" " {...register("firstName", UserModel.firstNameValidation)} />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="firstName" className="placeholder">First name:</label>
+                        <label className="placeholder">First name:</label>
                         <span className="Error">{formState.errors.firstName?.message}</span>
                     </div>
                     <div className="input-container ic2">
-                        <input id="lastName" className="input" type="text" placeholder=" " {...register("lastName", UserModel.lastNameValidation)} />
+                        <input className="input" type="text" placeholder=" " {...register("lastName", UserModel.lastNameValidation)} />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="lastName" className="placeholder">Last name:</label>
+                        <label className="placeholder">Last name:</label>
                         <span className="Error">{formState.errors.lastName?.message}</span>
                     </div>
 
                     <div className="input-container ic2">
-                        <input id="email" className="input" type="text" placeholder=" "  {...register("email", UserModel.emailValidation)} />
+                        <input className="input" type="text" placeholder=" "  {...register("email", UserModel.emailValidation)} />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="email" className="placeholder">Email</label>
+                        <label className="placeholder">Email</label>
                         <span className="Error">{formState.errors.email?.message}</span>
                     </div>
                     <div className="input-container ic2">
-                        <input id="password" className="input" type="password" placeholder=" " {...register("password", UserModel.passwordValidation)} />
+                        <input className="input" type="password" placeholder=" " {...register("password", UserModel.passwordValidation)} />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="password" className="placeholder">Password</label>
+                        <label className="placeholder">Password</label>
                         <span className="Error">{formState.errors.password?.message}</span>
                     </div>
 

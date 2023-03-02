@@ -12,17 +12,17 @@ function Layout(): JSX.Element {
 
     useEffect(() => {
 
-        // Get user from state into setUser
+        // get user for store to state
         setUser(authStore.getState().user);
 
-        // Listen to auth store state changes
-        authStore.subscribe(() => {
+        // listen to changes in store
+        const unsubscribe = authStore.subscribe(() =>
+            setUser(authStore.getState().user)
+        )
 
-            setUser(authStore.getState().user);
+        return () => unsubscribe();
 
-        });
-
-    }, []);
+    }, [user]);
 
     return (
         <div className="Layout">

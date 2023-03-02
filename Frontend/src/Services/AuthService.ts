@@ -21,7 +21,7 @@ class AuthService {
     }
 
     // Login:
-    public async Login(credentials: CredentialsModel): Promise<void> {
+    public async login(credentials: CredentialsModel): Promise<void> {
 
         // send user to backend:
         const response = await axios.post<string>(appConfig.loginUrl, credentials);

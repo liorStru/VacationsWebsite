@@ -34,7 +34,7 @@ function verifyToken(request: Request): Promise<boolean> {
 
             // if missing:
             if (!header) {
-                reject(new AuthenticationError("Invalid token"));
+                reject(new AuthenticationError("Must be logged-in for this page"));
                 return;
             }
 
@@ -43,7 +43,8 @@ function verifyToken(request: Request): Promise<boolean> {
 
             // If missing:
             if (!token) {
-                reject(new AuthenticationError("Invalid token"));
+                reject(new AuthenticationError("Must be logged-in for this page"));
+
                 return;
             }
 
@@ -54,7 +55,8 @@ function verifyToken(request: Request): Promise<boolean> {
 
                 // If token not valid:
                 if (err) {
-                    reject(new AuthenticationError("Invalid token"));
+                reject(new AuthenticationError("Must be logged-in for this page"));
+
                     return;
                 }
 

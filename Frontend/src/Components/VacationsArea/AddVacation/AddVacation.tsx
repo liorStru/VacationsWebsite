@@ -85,14 +85,13 @@ function AddVacation(): JSX.Element {
                 <form onSubmit={handleSubmit(send)}>
                     <div className="input-container ic2">
                         <input
-                            id="destination"
                             className="input"
                             type="text"
                             placeholder=" "
                             {...register("destination", VacationModel.destinationValidation)}
                         />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="destination" className="placeholder">
+                        <label className="placeholder">
                             Destination
                         </label>
                         <span className="Error">
@@ -102,14 +101,13 @@ function AddVacation(): JSX.Element {
 
                     <div className="input-container ic2">
                         <input
-                            id="description"
                             className="input"
                             type="text"
                             placeholder=" "
                             {...register("description", VacationModel.descriptionValidation)}
                         />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="description" className="placeholder">
+                        <label className="placeholder">
                             Description
                         </label>
                         <span className="Error">
@@ -118,14 +116,13 @@ function AddVacation(): JSX.Element {
                     </div>
                     <div className="input-container ic2">
                         <input
-                            id="price"
                             className="input"
                             type="number"
                             placeholder=" "
                             {...register("price", VacationModel.priceValidation)}
                         />
                         <div className="cut cut-short"></div>
-                        <label htmlFor="price" className="placeholder">
+                        <label className="placeholder">
                             Price
                         </label>
                         <span className="Error">{formState.errors.price?.message}</span>
@@ -134,7 +131,6 @@ function AddVacation(): JSX.Element {
                         <div className="input-container ic2">
                             <input
                                 min={new Date().toISOString().substring(0, 10)}
-                                id="startDate"
                                 className="input"
                                 type="date"
                                 placeholder=" "
@@ -145,7 +141,7 @@ function AddVacation(): JSX.Element {
                                 }}
                             />
                             <div className="cut cut-short"></div>
-                            <label htmlFor="startDate" className="placeholder">
+                            <label className="placeholder">
                                 Start Date
                             </label>
                             <span className="StartError">
@@ -154,14 +150,13 @@ function AddVacation(): JSX.Element {
 
                             <input
                                 min={startDate.toISOString().substring(0, 10)}
-                                id="endDate"
                                 className="input"
                                 type="date"
                                 placeholder=" "
                                 {...register("endDate", VacationModel.endDateValidation)}
                             />
                             <div className="cut cut-short"></div>
-                            <label htmlFor="endDate" className="placeholderEnd">
+                            <label className="placeholderEnd">
                                 End Date
                             </label>
                             <span className="EndError">
